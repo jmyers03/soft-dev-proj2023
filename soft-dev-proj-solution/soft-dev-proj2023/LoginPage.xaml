@@ -1,41 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="soft_dev_proj2023.MainPage">
+             x:Class="soft_dev_proj2023.MainPage"
+             BackgroundColor="{StaticResource Primary}">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <Grid>
+        <StackLayout Margin="20">
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+            <Image Source="goal_achieved.png" HeightRequest="50" HorizontalOptions="StartAndExpand"/>
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+            <!--Welcome banner stack-->
+            <StackLayout Margin="0,80">
+                <Label Style="{StaticResource Welcome}" FontSize="32" Text="Welcome"/>
+                <Label FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                       FontSize="16" Text="Sign in to continue"/>
+            </StackLayout>
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+            <!--Username and password stack-->
+            <StackLayout>
+                <Label FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                       FontSize="16" Text="Username"/>
 
-        </VerticalStackLayout>
-    </ScrollView>
+                <Grid Margin="0,5">
+                    <Frame Opacity="0.3" BackgroundColor="White" CornerRadius="5"/>
+                    <Entry BackgroundColor="Transparent" Placeholder="Enter username/email"
+                           TextColor="White" Margin="5,0" PlaceholderColor="Gray"/>
+                </Grid>
+                <Label FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                       FontSize="16" Text="Password"/>
+
+                <Grid Margin="0,5">
+                    <Frame Opacity="0.3" BackgroundColor="White" CornerRadius="5"/>
+                    <Entry BackgroundColor="Transparent" Placeholder="Enter password"
+                           TextColor="White" Margin="5,0" PlaceholderColor="Gray" 
+                           IsPassword="True"/>
+                </Grid>
+            </StackLayout>
+
+            <!--Sign In Button-->
+            <Button Margin="0,15" BackgroundColor="{StaticResource Secondary}"
+                    Text="Sign In" TextColor="{StaticResource Primary}" FontFamily="OpenSansBold"/>
+
+
+            <!--Bottom Ribbon stack-->
+            <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                <Label FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                       FontSize="16" Text="Forgot Password?" VerticalOptions="EndAndExpand" 
+                       HorizontalOptions="StartAndExpand"/>
+
+                <Label FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                       FontSize="16" Text="Register" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"/>
+                
+
+
+            </StackLayout>
+
+        </StackLayout>
+
+    </Grid>
 
 </ContentPage>
