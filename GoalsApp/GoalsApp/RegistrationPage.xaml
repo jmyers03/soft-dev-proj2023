@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YourAppName.RegistrationPage"
+             BackgroundColor="{StaticResource Primary}">
+
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Label Text="Registration Page" FontSize="24" HorizontalOptions="CenterAndExpand" TextColor="{StaticResource Secondary}" />
+
+            <!-- Registration form elements (e.g., name, email, password) can be added here -->
+
+            <Entry Placeholder="Name" />
+            <Entry Placeholder="Email" Keyboard="Email" />
+            <Entry Placeholder="Password" IsPassword="True" />
+
+            <Button Text="Register" BackgroundColor="{StaticResource Secondary}" TextColor="{StaticResource Primary}" Command="{Binding RegisterCommand}" HorizontalOptions="FillAndExpand" Margin="20,20,20,0" />
+
+            <Label Text="Already have an account? Tap here to sign in" TextColor="{StaticResource Secondary}" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignInCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ContentPage>

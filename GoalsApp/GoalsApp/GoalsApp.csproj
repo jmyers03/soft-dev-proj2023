@@ -48,4 +48,31 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <EmbeddedResource Remove="PasswordRecovery.xaml" />
+	  <EmbeddedResource Remove="RegistrationPage.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="RegistrationPage.xaml.cs">
+	    <DependentUpon>RegistrationPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="PasswordRecovery.xaml.cs">
+	    <DependentUpon>PasswordRecovery.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="RegistrationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PasswordRecovery.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

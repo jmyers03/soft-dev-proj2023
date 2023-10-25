@@ -12,14 +12,14 @@
             <!--Welcome banner stack-->
             <StackLayout Margin="0,80">
                 <Label Style="{StaticResource Welcome}" FontSize="32" Text="Welcome"/>
-                <Label FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                <Label x:Name="SignInLabel" FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
                        FontSize="16" Text="Sign in to continue"/>
             </StackLayout>
 
 
             <!--Username and password stack-->
             <StackLayout>
-                <Label FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                <Label x:Name="UsernameLabel" FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
                        FontSize="16" Text="Username"/>
 
                 <Grid Margin="0,5">
@@ -27,7 +27,7 @@
                     <Entry BackgroundColor="Transparent" Placeholder="Enter username/email"
                            TextColor="White" Margin="5,0" PlaceholderColor="Gray"/>
                 </Grid>
-                <Label FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                <Label x:Name="PasswordLabel" FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
                        FontSize="16" Text="Password"/>
 
                 <Grid Margin="0,5">
@@ -39,17 +39,17 @@
             </StackLayout>
 
             <!--Sign In Button-->
-            <Button Margin="0,15" BackgroundColor="{StaticResource Secondary}"
+            <Button x:Name="SignInButton" Margin="0,15" BackgroundColor="{StaticResource Secondary}"
                     Text="Sign In" TextColor="{StaticResource Primary}" FontFamily="OpenSansBold"/>
 
 
             <!--Bottom Ribbon stack-->
             <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
-                <Label FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                <Label x:Name="ForgotPasswordLabel" FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
                        FontSize="16" Text="Forgot Password?" VerticalOptions="EndAndExpand" 
                        HorizontalOptions="StartAndExpand"/>
 
-                <Label FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                <Label x:Name="RegisterLabel" FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
                        FontSize="16" Text="Register" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"/>
 
 
