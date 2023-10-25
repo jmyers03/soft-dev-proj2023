@@ -54,10 +54,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Compile Update="RegistrationPage.xaml.cs">
 	    <DependentUpon>RegistrationPage.xaml</DependentUpon>
 	  </Compile>
