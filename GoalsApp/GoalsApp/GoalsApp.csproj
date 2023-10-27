@@ -54,6 +54,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\dreamcatcher.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Dashboard.xaml.cs">
+	    <DependentUpon>Dashboard.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="RegistrationPage.xaml.cs">
 	    <DependentUpon>RegistrationPage.xaml</DependentUpon>
 	  </Compile>
@@ -63,6 +70,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Dashboard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="RegistrationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
