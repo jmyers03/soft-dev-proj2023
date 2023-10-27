@@ -11,7 +11,7 @@
 
             <!--Welcome banner stack-->
             <StackLayout Margin="0,80">
-                <Label Style="{StaticResource Welcome}" FontSize="32" Text="Welcome"/>
+                <Label x:Name="WelcomeLabel" FontSize="32" Text="Welcome"/>
                 <Label x:Name="SignInLabel" FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
                        FontSize="16" Text="Sign in to continue"/>
             </StackLayout>
