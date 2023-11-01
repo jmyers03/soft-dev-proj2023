@@ -48,6 +48,7 @@ namespace GoalsApp
         {
             // Handle the Register label click here
             // You can navigate to the registration page or show a registration form
+            Navigation.PushAsync(new RegistrationPage());
         }
     }
 }

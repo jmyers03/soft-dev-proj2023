@@ -11,14 +11,7 @@ namespace GoalsApp; //new .NET 6.0 non-nested namespace declaration
     }
 
     public ICommand SendRecoveryEmailCommand { get; }
-        public ICommand CancelCommand { get; }
-
-        //public PasswordRecoveryDialog()
-        //{
-        //    SendRecoveryEmailCommand = new Command(async () => await SendRecoveryEmail());
-        //    CancelCommand = new Command(async () => await ClosePopup());
-        //    BindingContext = this;
-        //}
+    public ICommand CancelCommand { get; }
 
         private async Task SendRecoveryEmail()
         {
