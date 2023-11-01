@@ -41,8 +41,7 @@ namespace GoalsApp
         private void OnForgotPasswordLabelTapped()
         {
             // Navigate to the PasswordRecoveryPage
-            var passwordRecoveryDialog = new PasswordRecoveryDialog();
-            Navigation.PushModalAsync(passwordRecoveryDialog);
+            Navigation.PushAsync(new PasswordRecovery());
         }
 
         private void OnRegisterLabelTapped()
