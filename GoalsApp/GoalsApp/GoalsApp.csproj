@@ -15,7 +15,7 @@
 		<ApplicationTitle>GoalsApp</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.goalsapp</ApplicationId>
+		<ApplicationId>com.companyname.goalMsapp</ApplicationId>
 		<ApplicationIdGuid>361a7c94-9efa-4e83-b0bc-7eeee4baf230</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -54,6 +54,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Update="RegistrationPage.xaml.cs">
 	    <DependentUpon>RegistrationPage.xaml</DependentUpon>
 	  </Compile>
@@ -69,6 +73,13 @@
 	  <MauiXaml Update="PasswordRecovery.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage1.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Data\" />
 	</ItemGroup>
 
 </Project>
