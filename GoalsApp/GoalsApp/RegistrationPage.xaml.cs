@@ -3,7 +3,7 @@ using System.Windows.Input;
 using System.Threading.Tasks;
 using GoalsApp;
 
-namespace YourAppName
+namespace GoalsApp
 {
     public partial class RegistrationPage : ContentPage
     {
@@ -12,7 +12,7 @@ namespace YourAppName
 
         public RegistrationPage()
         {
-
+            InitializeComponent();
             RegisterCommand = new Command(async () => await Register());
             SignInCommand = new Command(async () => await SignIn());
 

@@ -1,20 +1,17 @@
 using Microsoft.Maui.Controls;
 using System;
 using System.Windows.Input;
+namespace GoalsApp; //new .NET 6.0 non-nested namespace declaration 
 
-namespace GoalsApp
-{
-    public partial class PasswordRecoveryDialog : ContentPage
+    public partial class PasswordRecovery : ContentPage
     {
-        public ICommand SendRecoveryEmailCommand { get; }
-        public ICommand CancelCommand { get; }
+    public PasswordRecovery()
+    {
+        InitializeComponent();
+    }
 
-        public PasswordRecoveryDialog()
-        {
-            SendRecoveryEmailCommand = new Command(async () => await SendRecoveryEmail());
-            CancelCommand = new Command(async () => await ClosePopup());
-            BindingContext = this;
-        }
+    public ICommand SendRecoveryEmailCommand { get; }
+    public ICommand CancelCommand { get; }
 
         private async Task SendRecoveryEmail()
         {
@@ -44,4 +41,3 @@ namespace GoalsApp
             await Navigation.PopModalAsync();
         }
     }
-}

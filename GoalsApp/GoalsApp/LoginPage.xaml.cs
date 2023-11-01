@@ -41,14 +41,14 @@ namespace GoalsApp
         private void OnForgotPasswordLabelTapped()
         {
             // Navigate to the PasswordRecoveryPage
-            var passwordRecoveryDialog = new PasswordRecoveryDialog();
-            Navigation.PushModalAsync(passwordRecoveryDialog);
+            Navigation.PushAsync(new PasswordRecovery());
         }
 
         private void OnRegisterLabelTapped()
         {
             // Handle the Register label click here
             // You can navigate to the registration page or show a registration form
+            Navigation.PushAsync(new RegistrationPage());
         }
     }
 }

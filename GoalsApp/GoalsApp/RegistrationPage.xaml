@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
-    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="YourAppName.RegistrationPage"
-             BackgroundColor="{StaticResource Primary}">
+             x:Class="GoalsApp.RegistrationPage"
+             BackgroundColor="White"
+             Title="Registration Page">
 
-        <StackLayout VerticalOptions="CenterAndExpand">
-            <Label Text="Registration Page" FontSize="24" HorizontalOptions="CenterAndExpand" TextColor="{StaticResource Secondary}" />
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="20">
+        <Label Text="Registration" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" Margin="0,0,0,20"/>
 
-            <!-- Registration form elements (e.g., name, email, password) can be added here -->
+        <Entry Placeholder="First Name" Keyboard="First Name" Margin="0,0,0,10"/>
 
-            <Entry Placeholder="Name" />
-            <Entry Placeholder="Email" Keyboard="Email" />
-            <Entry Placeholder="Password" IsPassword="True" />
+        <Entry Placeholder="Last Name" Keyboard="Last Name" Margin="0,0,0,10"/>
 
-            <Button Text="Register" BackgroundColor="{StaticResource Secondary}" TextColor="{StaticResource Primary}" Command="{Binding RegisterCommand}" HorizontalOptions="FillAndExpand" Margin="20,20,20,0" />
+        <Entry Placeholder="Email" Keyboard="Email" Margin="0,0,0,10"/>
 
-            <Label Text="Already have an account? Tap here to sign in" TextColor="{StaticResource Secondary}" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding SignInCommand}" />
-                </Label.GestureRecognizers>
-            </Label>
-        </StackLayout>
-    </ContentPage>
+        <Entry Placeholder="Password" Keyboard="Password" Margin="0,0,0,10" IsPassword="True"/>
+
+        <Button Text="Sign Up" BackgroundColor="Navy" TextColor="White" HorizontalOptions="FillAndExpand" Margin="0,10,0,0"/>
+
+        <Button Text="Cancel" BackgroundColor="Navy" TextColor="White" HorizontalOptions="FillAndExpand"/>
+    </StackLayout>
+</ContentPage>
