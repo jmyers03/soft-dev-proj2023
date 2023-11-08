@@ -64,6 +64,9 @@
 	  <Compile Update="CreateGoal.xaml.cs">
 	    <DependentUpon>CreateGoal.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="CreateTask.xaml.cs">
+	    <DependentUpon>CreateTask.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="RegistrationPage.xaml.cs">
 	    <DependentUpon>RegistrationPage.xaml</DependentUpon>
 	  </Compile>
@@ -77,6 +80,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="CreateGoal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="CreateTask.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="RegistrationPage.xaml">

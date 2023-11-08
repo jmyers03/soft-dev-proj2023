@@ -34,6 +34,10 @@
                     TextColor="White" Margin="5,0" PlaceholderColor="Gray" 
                     IsPassword="True"/>
                 </Grid>
+
+                <!-- Drop down list of goals to associate Task to?-->
+                
+                
             </StackLayout>
             
             <!-- Create Goal button-->
