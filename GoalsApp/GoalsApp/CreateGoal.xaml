@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GoalsApp.CreateGoal"
+             Title="CreateGoal">
+    <Grid>
+
+        <StackLayout Margin="20">
+
+            <!--Let's Create a Goal! stack-->
+
+            <StackLayout Margin="0,80">
+                <Label x:Name="CreateGoalScreenLabel" FontSize="32" Text="Let's Create a Goal!"/>
+            </StackLayout>
+
+            <!--Goal Details stack-->
+
+            <StackLayout>
+                <Label x:Name="GoalTitleLabel" FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                  FontSize="16" Text="Goal Title"/>
+
+                <Grid Margin="0,5">
+                    <Frame Opacity="0.3" BackgroundColor="White" CornerRadius="5"/>
+                    <Entry BackgroundColor="Transparent" Placeholder="Enter goal title here"
+                    TextColor="White" Margin="5,0" PlaceholderColor="Gray"/>
+                </Grid>
+               
+                <Label x:Name="GoalDescriptionLabel" FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                    FontSize="16" Text="Goal Description"/>
+
+                <Grid Margin="0,5">
+                    <Frame Opacity="0.3" BackgroundColor="White" CornerRadius="5"/>
+                    <Entry BackgroundColor="Transparent" Placeholder="Enter Goal description here"
+                    TextColor="White" Margin="5,0" PlaceholderColor="Gray" 
+                    IsPassword="True"/>
+                </Grid>
+            </StackLayout>
+            
+            <!-- Create Goal button-->
+            <Button x:Name="CreateGoalButton" Margin="0,15" BackgroundColor="{StaticResource Secondary}"
+                 Text="Create Goal" TextColor="{StaticResource Primary}" FontFamily="OpenSansBold"/>
+
+            
+            <!--Bottom Ribbon stack-->
+            <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                <Label x:Name="ReturnToDashboardLabel" FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                FontSize="16" Text="Return To Dashboard" VerticalOptions="EndAndExpand" 
+                 HorizontalOptions="StartAndExpand"/>
+
+                <Label x:Name="ListOfGoalsLabel" FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                   FontSize="16" Text="List of Goals" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"/>
+                        <!--Within Lift of goals is delete() and update() functionalities-->
+
+            </StackLayout>
+
+        </StackLayout>
+
+    </Grid>
+
+</ContentPage>
