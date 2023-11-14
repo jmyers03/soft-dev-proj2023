@@ -20,7 +20,7 @@
                   FontSize="16" Text="Goal Title"/>
 
                 <Grid Margin="0,5">
-                    <Frame Opacity="0.3" BackgroundColor="White" CornerRadius="5"/>
+                    <Border Opacity="0.3" BackgroundColor="White"/>
                     <Entry BackgroundColor="Transparent" Placeholder="Enter goal title here"
                     TextColor="White" Margin="5,0" PlaceholderColor="Gray"/>
                 </Grid>
@@ -29,7 +29,7 @@
                     FontSize="16" Text="Goal Description"/>
 
                 <Grid Margin="0,5">
-                    <Frame Opacity="0.3" BackgroundColor="White" CornerRadius="5"/>
+                    <Border Opacity="0.3" BackgroundColor="White"/>
                     <Entry BackgroundColor="Transparent" Placeholder="Enter Goal description here"
                     TextColor="White" Margin="5,0" PlaceholderColor="Gray" 
                     IsPassword="True"/>

@@ -21,7 +21,7 @@
               FontSize="16" Text="Task Title"/>
 
                 <Grid Margin="0,5">
-                    <Frame Opacity="0.3" BackgroundColor="White" CornerRadius="5"/>
+                    <Border Opacity="0.3" BackgroundColor="White"/>
                     <Entry BackgroundColor="Transparent" Placeholder="Enter task title here"
                 TextColor="White" Margin="5,0" PlaceholderColor="Gray"/>
                 </Grid>
@@ -30,7 +30,7 @@
                 FontSize="16" Text="Task Description"/>
 
                 <Grid Margin="0,5">
-                    <Frame Opacity="0.3" BackgroundColor="White" CornerRadius="5"/>
+                    <Border Opacity="0.3" BackgroundColor="White"/>
                     <Entry BackgroundColor="Transparent" Placeholder="Enter Task description here"
                 TextColor="White" Margin="5,0" PlaceholderColor="Gray" 
                 IsPassword="True"/>
@@ -38,8 +38,6 @@
                 
                 <!--Combo box with goals-->
                 
-
-
 
             </StackLayout>
 

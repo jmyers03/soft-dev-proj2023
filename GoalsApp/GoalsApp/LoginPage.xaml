@@ -23,17 +23,17 @@
                        FontSize="16" Text="Username"/>
 
                 <Grid Margin="0,5">
-                    <Frame Opacity="0.3" BackgroundColor="White" CornerRadius="5"/>
+                    <Border Opacity="0.3" BackgroundColor="White"/>
                     <Entry BackgroundColor="Transparent" Placeholder="Enter username/email"
-                           TextColor="White" Margin="5,0" PlaceholderColor="Gray"/>
+                           TextColor="White" PlaceholderColor="Gray"/>
                 </Grid>
                 <Label x:Name="PasswordLabel" FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
                        FontSize="16" Text="Password"/>
 
                 <Grid Margin="0,5">
-                    <Frame Opacity="0.3" BackgroundColor="White" CornerRadius="5"/>
+                    <Border Opacity="0.3" BackgroundColor="White"/>
                     <Entry BackgroundColor="Transparent" Placeholder="Enter password"
-                           TextColor="White" Margin="5,0" PlaceholderColor="Gray" 
+                           TextColor="White" PlaceholderColor="Gray" 
                            IsPassword="True"/>
                 </Grid>
             </StackLayout>
