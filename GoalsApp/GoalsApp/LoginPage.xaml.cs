@@ -10,8 +10,6 @@ namespace GoalsApp
 
             // Attach event handlers
             SignInButton.Clicked += OnSignInButtonClicked;
-            ForgotPasswordLabel.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(OnForgotPasswordLabelTapped) });
-            RegisterLabel.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(OnRegisterLabelTapped) });
         }
 
         private void OnSignInButtonClicked(object sender, EventArgs e)
@@ -38,17 +36,16 @@ namespace GoalsApp
             */
         }
 
-        private void OnForgotPasswordLabelTapped()
+        private async void OnForgotPasswordLabelTapped(object sender, EventArgs e)
         {
-            // Navigate to the PasswordRecoveryPage
-            Navigation.PushAsync(new PasswordRecovery());
+            // Navigate to the PasswordRecoveryPage using Shell navigation
+            await Shell.Current.GoToAsync(nameof(PasswordRecovery));
         }
 
-        private void OnRegisterLabelTapped()
+        private async void OnRegisterLabelTapped(object sender, EventArgs e)
         {
-            // Handle the Register label click here
-            // You can navigate to the registration page or show a registration form
-            Navigation.PushAsync(new RegistrationPage());
+            // Navigate to the RegistrationPage using Shell navigation
+            await Shell.Current.GoToAsync(nameof(RegistrationPage));
         }
     }
 }

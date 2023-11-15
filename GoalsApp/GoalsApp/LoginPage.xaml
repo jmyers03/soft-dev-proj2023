@@ -41,11 +41,18 @@
             <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
                 <Label x:Name="ForgotPasswordLabel" FontFamily="OpenSansRegular" TextColor="Black"
                        FontSize="16" Text="Forgot Password?" VerticalOptions="EndAndExpand" 
-                       HorizontalOptions="StartAndExpand"/>
-
+                       HorizontalOptions="StartAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnForgotPasswordLabelTapped"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                
                 <Label x:Name="RegisterLabel" FontFamily="OpenSansRegular" TextColor="Black"
-                       FontSize="16" Text="Register" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"/>
-
+                       FontSize="16" Text="Register" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnRegisterLabelTapped"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
 
 
             </StackLayout>

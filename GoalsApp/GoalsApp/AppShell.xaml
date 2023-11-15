@@ -6,4 +6,6 @@
     xmlns:local="clr-namespace:GoalsApp"
     Shell.FlyoutBehavior="Disabled">
 
+    <ShellContent Title="Login Page" ContentTemplate="{DataTemplate local:LoginPage}" />
+
 </Shell>
