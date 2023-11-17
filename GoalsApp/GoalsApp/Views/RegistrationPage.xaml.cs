@@ -3,7 +3,7 @@ using System.Windows.Input;
 using System.Threading.Tasks;
 using GoalsApp;
 
-namespace GoalsApp
+namespace GoalsApp.Views
 {
     public partial class RegistrationPage : ContentPage
     {

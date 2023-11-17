@@ -1,7 +1,7 @@
 using Microsoft.Maui.Controls;
 using System;
 using System.Windows.Input;
-namespace GoalsApp; //new .NET 6.0 non-nested namespace declaration 
+namespace GoalsApp.Views; //new .NET 6.0 non-nested namespace declaration 
 
     public partial class PasswordRecovery : ContentPage
     {

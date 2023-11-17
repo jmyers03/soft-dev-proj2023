@@ -1,4 +1,6 @@
-﻿namespace GoalsApp;
+﻿using GoalsApp.Views;
+
+namespace GoalsApp;
 
 public static class MauiProgram
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Maui.Controls;
 
-namespace GoalsApp
+namespace GoalsApp.Views
 {
     public partial class LoginPage : ContentPage
     {
