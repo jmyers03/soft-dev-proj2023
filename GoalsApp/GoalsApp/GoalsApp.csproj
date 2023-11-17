@@ -61,6 +61,7 @@
 	  <Compile Update="Views\Dashboard.xaml.cs">
 	    <DependentUpon>Dashboard.xaml</DependentUpon>
 	  </Compile>
+	  <PackageReference Include="Plugin.Maui.Calendar" Version="1.0.3" />
 	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 	</ItemGroup>
 
