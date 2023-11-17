@@ -11,8 +11,14 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+
 			});
 
-		return builder.Build();
+
+        builder.Services.AddTransient<LoginPage>();
+        builder.Services.AddTransient<PasswordRecovery>();
+        builder.Services.AddTransient<RegistrationPage>();
+
+        return builder.Build();
 	}
 }
