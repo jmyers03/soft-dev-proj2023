@@ -1,4 +1,5 @@
-﻿using GoalsApp.Views;
+﻿using CommunityToolkit.Maui;
+using GoalsApp.Views;
 
 namespace GoalsApp;
 
@@ -7,7 +8,11 @@ public static class MauiProgram
 	public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
-		builder
+        
+        // Initialise the toolkit
+        builder.UseMauiApp<App>().UseMauiCommunityToolkit();
+        
+        builder
 			.UseMauiApp<App>()
 			.ConfigureFonts(fonts =>
 			{
