@@ -46,7 +46,21 @@
                         <TapGestureRecognizer Tapped="OnForgotPasswordLabelTapped"></TapGestureRecognizer>
                     </Label.GestureRecognizers>
                 </Label>
-                
+
+                <Label x:Name="TaskPageLabel" FontFamily="OpenSansRegular" TextColor="Black"
+                        FontSize="16" Text="Go to Task Page" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTaskPageLabelTapped"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label x:Name="CalendarPageLabel" FontFamily="OpenSansRegular" TextColor="Black"
+                        FontSize="16" Text="Go to Calendar Page" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCalendarPageLabelTapped"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+
                 <Label x:Name="RegisterLabel" FontFamily="OpenSansRegular" TextColor="Black"
                        FontSize="16" Text="Register" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand">
                     <Label.GestureRecognizers>
