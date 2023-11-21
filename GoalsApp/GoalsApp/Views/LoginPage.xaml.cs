@@ -48,6 +48,12 @@ namespace GoalsApp.Views
             await Shell.Current.GoToAsync(nameof(TaskPage));
         }
 
+        private async void OnCalendarPageLabelTapped(object sender, EventArgs e)
+        {
+            // Navigate to the PasswordRecoveryPage using Shell navigation
+            await Shell.Current.GoToAsync(nameof(CalendarPage));
+        }
+
         private async void OnRegisterLabelTapped(object sender, EventArgs e)
         {
             // Navigate to the RegistrationPage using Shell navigation
