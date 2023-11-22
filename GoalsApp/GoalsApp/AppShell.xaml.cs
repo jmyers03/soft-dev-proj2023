@@ -8,8 +8,9 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 
-		//ADD NEW PAGE ROUTES HERE
-		Routing.RegisterRoute(nameof(PasswordRecovery), typeof(PasswordRecovery));
+        //ADD NEW PAGE ROUTES HERE
+        Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
+        Routing.RegisterRoute(nameof(PasswordRecovery), typeof(PasswordRecovery));
 		Routing.RegisterRoute(nameof(SignUpPage), typeof(SignUpPage));
         Routing.RegisterRoute(nameof(TaskPage), typeof(TaskPage));
         Routing.RegisterRoute(nameof(CalendarPage), typeof(CalendarPage));
