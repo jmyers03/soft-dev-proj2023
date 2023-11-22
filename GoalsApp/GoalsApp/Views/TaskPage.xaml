@@ -5,10 +5,10 @@
              x:Class="GoalsApp.Views.TaskPage">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="20" BackgroundColor="LightGray">
+            <StackLayout Padding="20">
                 <Label Text="My Tasks" FontFamily="MontserratBold" FontSize="35" Padding="0,0,0,10" Grid.Row="0" Grid.Column="0" />
                 <Button Text="+ New Task" FontSize="15" HorizontalOptions="Start" BackgroundColor="#4DAA57" Margin="0,0,0,15"/>
-                <Border Padding="15" BackgroundColor="White" Grid.Row="3" Grid.ColumnSpan="3" StrokeThickness="2" Margin="0,0,0,10">
+                <Border Padding="15" BackgroundColor="#F5F5F5" Grid.Row="3" Stroke="#EAEAEA" Grid.ColumnSpan="3" StrokeThickness="2" Margin="0,0,0,10">
                     <Border.StrokeShape>
                         <shapes:RoundRectangle CornerRadius="10,10,10,10" />
                     </Border.StrokeShape>

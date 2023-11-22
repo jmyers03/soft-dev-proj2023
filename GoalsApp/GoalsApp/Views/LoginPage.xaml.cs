@@ -44,20 +44,26 @@ namespace GoalsApp.Views
 
         private async void OnTaskPageLabelTapped(object sender, EventArgs e)
         {
-            // Navigate to the PasswordRecoveryPage using Shell navigation
+            // Navigate to the TaskPage using Shell navigation
             await Shell.Current.GoToAsync(nameof(TaskPage));
         }
 
         private async void OnCalendarPageLabelTapped(object sender, EventArgs e)
         {
-            // Navigate to the PasswordRecoveryPage using Shell navigation
+            // Navigate to the CalendarPage using Shell navigation
             await Shell.Current.GoToAsync(nameof(CalendarPage));
         }
 
-        private async void OnRegisterLabelTapped(object sender, EventArgs e)
+        private async void OnContinueWithoutAccountLabelTapped(object sender, EventArgs e)
         {
-            // Navigate to the RegistrationPage using Shell navigation
-            await Shell.Current.GoToAsync(nameof(RegistrationPage));
+            // Navigate to the Dashboard using Shell navigation
+            await Shell.Current.GoToAsync(nameof(Dashboard));
+        }
+
+        private async void OnSignUpButtonClicked(object sender, EventArgs e)
+        {
+            // Navigate to the SignUpPage using Shell navigation
+            await Shell.Current.GoToAsync(nameof(SignUpPage));
         }
     }
 }

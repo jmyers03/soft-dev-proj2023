@@ -31,13 +31,17 @@
             
 
         <!--Sign In Button-->
-        <Button x:Name="SignInButton" Margin="0,15" BackgroundColor="Navy"
+        <Button x:Name="SignInButton" Margin="0,15"
                 Text="Sign In" TextColor="White"/>
 
+        <BoxView HeightRequest="1" Color="LightGray" Margin="0,4,0,0"/>
+
+        <Button x:Name="SignUpButton" Margin="0,15"
+        Text="Sign Up" TextColor="White" Clicked="OnSignUpButtonClicked"/>
 
         <!--Bottom Ribbon stack-->
         <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
-            <Label x:Name="ForgotPasswordLabel" TextColor="Black"
+            <Label x:Name="ForgotPasswordLabel" TextDecorations="Underline" TextColor="Black"
                     FontSize="16" Text="Forgot Password?" VerticalOptions="EndAndExpand" 
                     HorizontalOptions="StartAndExpand">
                 <Label.GestureRecognizers>
@@ -45,27 +49,13 @@
                 </Label.GestureRecognizers>
             </Label>
 
-            <Label x:Name="TaskPageLabel" TextColor="Black"
-                    FontSize="16" Text="Go to Task Page" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand">
+            <Label x:Name="ContinueWithoutAccountLabel" TextColor="Black"
+                    FontSize="16" Text="Continue without account?" TextDecorations="Underline" VerticalOptions="EndAndExpand" 
+                    HorizontalOptions="EndAndExpand">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnTaskPageLabelTapped"></TapGestureRecognizer>
+                    <TapGestureRecognizer Tapped="OnContinueWithoutAccountLabelTapped"></TapGestureRecognizer>
                 </Label.GestureRecognizers>
             </Label>
-
-            <Label x:Name="CalendarPageLabel" TextColor="Black"
-                    FontSize="16" Text="Go to Calendar Page" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnCalendarPageLabelTapped"></TapGestureRecognizer>
-                </Label.GestureRecognizers>
-            </Label>
-
-            <Label x:Name="RegisterLabel" TextColor="Black"
-                    FontSize="16" Text="Register" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnRegisterLabelTapped"></TapGestureRecognizer>
-                </Label.GestureRecognizers>
-            </Label>
-
 
         </StackLayout>
 </StackLayout>

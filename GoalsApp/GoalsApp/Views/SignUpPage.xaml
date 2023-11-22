@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GoalsApp.Views.SignUpPage"
+             BackgroundColor="White"
+             Title="Registration Page"
+             Shell.FlyoutBehavior="Disabled">
+
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="20">
+        <Label Text="Registration" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" Margin="0,0,0,20"/>
+
+        <Entry Placeholder="First Name" Margin="0,0,0,10"/>
+
+        <Entry Placeholder="Last Name" Margin="0,0,0,10"/>
+
+        <Entry Placeholder="Email" Margin="0,0,0,10"/>
+
+        <Entry Placeholder="Password" Margin="0,0,0,10" IsPassword="True"/>
+
+        <Button Text="Sign Up" HorizontalOptions="FillAndExpand" Margin="0,10,0,0"/>
+
+        <Button Text="Cancel" HorizontalOptions="FillAndExpand"/>
+    </StackLayout>
+</ContentPage>

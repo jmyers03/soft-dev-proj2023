@@ -8,6 +8,7 @@
 
     <ShellContent Title="Login Page" ContentTemplate="{DataTemplate local:LoginPage}" />
     <ShellContent Title="Tasks" ContentTemplate="{DataTemplate local:TaskPage}" />
+    <ShellContent Title="Calendar" ContentTemplate="{DataTemplate local:CalendarPage}" />
     <ShellContent Title="UI Experiments" ContentTemplate="{DataTemplate local:UIExperiments}" />
 
 </Shell>

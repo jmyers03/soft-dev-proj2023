@@ -32,7 +32,7 @@ public static class MauiProgram
 
         builder.Services.AddTransient<LoginPage>();
         builder.Services.AddTransient<PasswordRecovery>();
-        builder.Services.AddTransient<RegistrationPage>();
+        builder.Services.AddTransient<SignUpPage>();
 
         return builder.Build();
 	}
