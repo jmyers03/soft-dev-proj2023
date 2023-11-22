@@ -12,7 +12,7 @@
             <!--Welcome to DreamCatcher banner stack-->
             <StackLayout Margin="0,80">
                 <Label Style="{StaticResource Dashboard}" FontSize="32" Text="Welcome to DreamCatcher"/>
-                <Label x:Name="SignInLabel" FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                <Label x:Name="SignInLabel" TextColor="{StaticResource Secondary}"
             FontSize="16" Text="Helping your dreams come true"/>
             </StackLayout>
 
@@ -20,24 +20,24 @@
             <!--Desired outcome of button navigation for user is to be as simple as possible without any tabs(unnecessary)-->
             <!--Directs you to list of Goals-->
             <Button x:Name="ToGoalsButton" Margin="0,15" BackgroundColor="{StaticResource Secondary}"
-                    Text="Goals" TextColor="{StaticResource Primary}" FontFamily="OpenSansBold"/>
+                    Text="Goals" TextColor="{StaticResource Primary}"/>
 
             <!--Directs you to Tasks-->
             <Button x:Name="ToTasksButton" Margin="0,15" BackgroundColor="{StaticResource Secondary}"
-                    Text="Tasks" TextColor="{StaticResource Primary}" FontFamily="OpenSansBold"/>
+                    Text="Tasks" TextColor="{StaticResource Primary}"/>
 
             <!--Directs you to Calendar-->
             <Button x:Name="ToCalendarButton" Margin="0,15" BackgroundColor="{StaticResource Secondary}"
-                    Text="Calendar" TextColor="{StaticResource Primary}" FontFamily="OpenSansBold"/>
+                    Text="Calendar" TextColor="{StaticResource Primary}"/>
 
 
             <!--Bottom Ribbon stack-->
             <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
-                <Label x:Name="SignOutLabel" FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                <Label x:Name="SignOutLabel" TextColor="{StaticResource Secondary}"
                 FontSize="16" Text="Forgot Password?" VerticalOptions="EndAndExpand" 
                 HorizontalOptions="StartAndExpand"/>
 
-                <Label x:Name="UserSettingsLabel" FontFamily="OpenSansRegular" TextColor="{StaticResource Secondary}"
+                <Label x:Name="UserSettingsLabel" TextColor="{StaticResource Secondary}"
                 FontSize="16" Text="User Settings" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"/>
 
             </StackLayout>
