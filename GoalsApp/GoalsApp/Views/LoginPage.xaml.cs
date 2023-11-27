@@ -46,22 +46,11 @@ namespace GoalsApp.Views
             await Shell.Current.GoToAsync(nameof(PasswordRecovery));
         }
 
-        private async void OnTaskPageLabelTapped(object sender, EventArgs e)
-        {
-            // Navigate to the TaskPage using Shell navigation
-            await Shell.Current.GoToAsync(nameof(TaskPage));
-        }
-
-        private async void OnCalendarPageLabelTapped(object sender, EventArgs e)
-        {
-            // Navigate to the CalendarPage using Shell navigation
-            await Shell.Current.GoToAsync(nameof(CalendarPage));
-        }
-
         private async void OnContinueWithoutAccountLabelTapped(object sender, EventArgs e)
         {
             // Navigate to the Dashboard using Shell navigation
-            await Shell.Current.GoToAsync(nameof(Dashboard));
+            // the backslashes navigate to the FlyoutItems defined in AppShell.xaml
+            await Shell.Current.GoToAsync("//Dashboard");
         }
 
         private async void OnSignUpButtonClicked(object sender, EventArgs e)

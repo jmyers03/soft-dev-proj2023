@@ -3,12 +3,35 @@
     x:Class="GoalsApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:GoalsApp.Views;assembly=GoalsApp"
-    Shell.FlyoutBehavior="Flyout">
+    xmlns:local="clr-namespace:GoalsApp.Views;assembly=GoalsApp">
 
-    <ShellContent Title="Login Page" ContentTemplate="{DataTemplate local:LoginPage}" />
-    <ShellContent Title="Tasks" ContentTemplate="{DataTemplate local:TaskPage}" />
-    <ShellContent Title="Calendar" ContentTemplate="{DataTemplate local:CalendarPage}" />
-    <ShellContent Title="UI Experiments" ContentTemplate="{DataTemplate local:UIExperiments}" />
+    <!--Gave these Flyout items the same route as the buttons-->
+    <FlyoutItem Title="Sign Out" Route="LoginPage">
+        <ShellContent Title="Login Page" ContentTemplate="{DataTemplate local:LoginPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Dashboard" Route="Dashboard">
+        <ShellContent Title="Dashboard" ContentTemplate="{DataTemplate local:Dashboard}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Tasks" Route="TaskPage">
+        <ShellContent Title="Tasks" ContentTemplate="{DataTemplate local:TaskPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Goals" Route="GoalPage">
+        <ShellContent Title="Goals" ContentTemplate="{DataTemplate local:GoalPage}" />
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Calendar" Route="CalendarPage">
+        <ShellContent Title="Calendar Page" ContentTemplate="{DataTemplate local:CalendarPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Reminders" Route="ReminderPage">
+        <ShellContent Title="Reminders" ContentTemplate="{DataTemplate local:ReminderPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="UI Experiments" Route="UIExperiments">
+        <ShellContent Title="UI Experiments" ContentTemplate="{DataTemplate local:UIExperiments}" />
+    </FlyoutItem>
 
 </Shell>
