@@ -10,20 +10,6 @@
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <Color x:Key="Primary">Navy</Color>
-            <Color x:Key="Secondary">White</Color>
-
-            <Style TargetType="Label">
-                <Setter Property="TextColor" Value="White"/>
-                <Setter Property="FontFamily" Value="OpenSansRegular"/>
-            </Style>
-
-            <Style TargetType="Button">
-                <Setter Property="TextColor" Value="White"/>
-                <Setter Property="FontFamily" Value="OpenSansRegular"/>
-                <Setter Property="BackgroundColor" Value="Navy"/>
-                <Setter Property="Padding" Value="14,10"/>
-            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

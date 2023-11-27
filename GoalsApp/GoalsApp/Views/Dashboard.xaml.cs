@@ -1,9 +1,9 @@
-namespace GoalsApp;
+namespace GoalsApp.Views;
 
-public partial class NewPage1 : ContentPage
+public partial class Dashboard : ContentPage
 {
-	public NewPage1()
+	public Dashboard()
 	{
-		
-	}
+        InitializeComponent();
+    }
 }
