@@ -41,8 +41,8 @@
                                                 </ctk:Expander.Header>
                                                 <!-- StackLayout stacks its child elements -->
                                                 <StackLayout>
-                                                    <!-- Entry is a single-line text input field -->
-                                                    <Entry Placeholder="Task Description:" Text="{Binding Description}" Margin="0,7,0,0" VerticalOptions="Center"/>
+                                                    <!-- Editor is a multi-line text input field -->
+                                                    <Editor Placeholder="Task Description:" Text="{Binding Description}" Margin="0,7,0,0" VerticalOptions="Center"/>
                                                     <!-- HorizontalStackLayout stacks its child elements horizontally -->
                                                     <HorizontalStackLayout>
                                                         <!-- Label displays static text -->
@@ -65,16 +65,13 @@
                 <!--#endregion-->
                 <!--#region -->
                 <!-- Border is container with a border around it -->
-                <Border Padding="15" BackgroundColor="#F5F5F5" Stroke="#EAEAEA" StrokeThickness="2" Margin="10,0,0,10" HorizontalOptions="End">
-                    <!-- StrokeShape defines the shape of the border -->
+                <Border Padding="15" BackgroundColor="#F5F5F5" Stroke="#EAEAEA" StrokeThickness="2" Margin="20,0,0,10" HorizontalOptions="End">
                     <Border.StrokeShape>
                         <shapes:RoundRectangle CornerRadius="10,10,10,10" />
                     </Border.StrokeShape>
-                    <!-- Border.Content is the content inside the border -->
                     <Border.Content>
-                        <!-- StackLayout stacks its child elements -->
                         <StackLayout>
-                            <!-- Add your content here -->
+                            
                         </StackLayout>
                     </Border.Content>
                 </Border>
