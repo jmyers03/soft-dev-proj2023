@@ -18,8 +18,16 @@
         <ShellContent Title="Tasks" ContentTemplate="{DataTemplate local:TaskPage}" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Goals" Route="GoalPage">
+        <ShellContent Title="Goals" ContentTemplate="{DataTemplate local:GoalPage}" />
+    </FlyoutItem>
+    
     <FlyoutItem Title="Calendar" Route="CalendarPage">
         <ShellContent Title="Calendar Page" ContentTemplate="{DataTemplate local:CalendarPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Reminders" Route="ReminderPage">
+        <ShellContent Title="Reminders" ContentTemplate="{DataTemplate local:ReminderPage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="UI Experiments" Route="UIExperiments">
