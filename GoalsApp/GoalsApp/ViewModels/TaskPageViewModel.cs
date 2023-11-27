@@ -17,6 +17,7 @@ namespace GoalsApp.ViewModels
         //TaskViewModel constructor 
         public TaskPageViewModel()
         {
+            DateTime TodayDate = DateTime.Now;
             Tasks = new ObservableCollection<MyTask>
             {
                 new MyTask { Id = "1", Title = "This task has no description (Id=1)"},

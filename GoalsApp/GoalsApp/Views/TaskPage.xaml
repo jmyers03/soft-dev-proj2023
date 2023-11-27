@@ -45,7 +45,7 @@
                                                     <!-- Label displays static text -->
                                                     <Label Text="Completion Date and Time:" Margin="0,7,7,0" FontFamily="MontserratLight" VerticalOptions="Center"/>
                                                     <!-- DatePicker allows users to pick a date -->
-                                                    <DatePicker MinimumDate="01/01/2022" Date="{Binding TodayDate}" MaximumDate="12/31/3000" Margin="0,7,7,0" VerticalOptions="Center"/>
+                                                    <DatePicker MinimumDate="01/01/2022" Date="{Binding CompletionDate}" MaximumDate="12/31/3000" Margin="0,7,7,0" VerticalOptions="Center"/>
                                                     <!-- TimePicker allows users to pick a time -->
                                                     <TimePicker Time="12:00" Format="t" Margin="0,7,0,0" VerticalOptions="Center"/>
                                                 </HorizontalStackLayout>
