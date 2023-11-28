@@ -16,8 +16,9 @@ public static class MauiProgram
 			.UseMauiApp<App>()
 			.ConfigureFonts(fonts =>
 			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                //Old fonts:
+				//fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+				//fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 
                 //Newly added fonts: 
                 fonts.AddFont("Montserrat-Regular.ttf", "Montserrat");
@@ -31,7 +32,7 @@ public static class MauiProgram
 
         builder.Services.AddTransient<LoginPage>();
         builder.Services.AddTransient<PasswordRecovery>();
-        builder.Services.AddTransient<RegistrationPage>();
+        builder.Services.AddTransient<SignUpPage>();
 
         return builder.Build();
 	}

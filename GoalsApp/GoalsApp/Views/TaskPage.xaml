@@ -1,48 +1,81 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"      
-             xmlns:ctk="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
-             xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
-             x:Class="GoalsApp.Views.TaskPage">
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"    
+       xmlns:ctk="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+       xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
+       x:Class="GoalsApp.Views.TaskPage">
+
     <ContentPage.Content>
+        <!-- ScrollView allows scrolling if content exceeds page size -->
         <ScrollView>
-            <StackLayout Padding="20" BackgroundColor="LightGray">
-                <Label Text="My Tasks" FontFamily="MontserratBold" FontSize="35" Padding="0,0,0,10" Grid.Row="0" Grid.Column="0" />
-                <Button Text="+ New Task" FontSize="15" HorizontalOptions="Start" BackgroundColor="#4DAA57" Margin="0,0,0,15"/>
-                <Border Padding="15" BackgroundColor="White" Grid.Row="3" Grid.ColumnSpan="3" StrokeThickness="2" Margin="0,0,0,10">
+            <!-- StackLayout stacks its child elements -->
+            <HorizontalStackLayout Padding="20">
+                <!--#region WholeTasksTile-->
+                <!-- Border is container with a border around it -->
+                <Border Padding="15" BackgroundColor="#F5F5F5" Stroke="#EAEAEA" Margin="0,0,0,10">
+                    <!-- StrokeShape defines the shape of the border -->
+                    <Border.StrokeShape>
+                        <shapes:RoundRectangle CornerRadius="10,10,10,10" />
+                    </Border.StrokeShape>
+                    <!-- Border.Content is the content inside the border -->
+                    <Border.Content>
+                        <!-- StackLayout stacks its child elements -->
+                        <StackLayout>
+                            <!-- Label defines text -->
+                            <Label Text="My Tasks" FontFamily="MontserratBold" FontSize="35" Padding="0,0,0,10"/>
+                            <!-- Button is a clickable control that triggers an event -->
+                            <Button Text="+ New Task" FontSize="15" HorizontalOptions="Start" BackgroundColor="#4DAA57" Margin="0,0,0,15"/>
+                            <!-- CollectionView displays a collection with the Tasks list from our ViewModel -->
+                            <!--#region CollectionView-->
+                            <CollectionView ItemsSource="{Binding Tasks}">
+                                <!-- ListView.ItemTemplate defines the appearance of each item as the DataTemplate below -->
+                                <CollectionView.ItemTemplate>
+                                    <!-- DataTemplate defines what each entry in the Collection will be -->
+                                    <DataTemplate>
+                                        <!-- StackLayout stacks its child elements -->
+                                        <StackLayout>
+                                            <!-- Expander is a container that can be expanded or collapsed -->
+                                            <ctk:Expander Padding="0,0,0,10">
+                                                <!-- Expander.Header is the content of the header -->
+                                                <ctk:Expander.Header>
+                                                    <Label Text="{Binding Title}" FontSize="18" FontFamily="MontserratBold" />
+                                                </ctk:Expander.Header>
+                                                <!-- StackLayout stacks its child elements -->
+                                                <StackLayout>
+                                                    <!-- Editor is a multi-line text input field -->
+                                                    <Editor Placeholder="Task Description:" Text="{Binding Description}" Margin="0,7,0,0" VerticalOptions="Center"/>
+                                                    <!-- HorizontalStackLayout stacks its child elements horizontally -->
+                                                    <HorizontalStackLayout>
+                                                        <!-- Label displays static text -->
+                                                        <Label Text="Completion Date and Time:" Margin="0,7,7,0" FontFamily="MontserratLight" VerticalOptions="Center"/>
+                                                        <!-- DatePicker allows users to pick a date -->
+                                                        <DatePicker MinimumDate="01/01/2022" Date="{Binding CompletionDate}" MaximumDate="12/31/3000" Margin="0,7,7,0" VerticalOptions="Center"/>
+                                                        <!-- TimePicker allows users to pick a time -->
+                                                        <TimePicker Time="12:00" Format="t" Margin="0,7,0,0" VerticalOptions="Center"/>
+                                                    </HorizontalStackLayout>
+                                                </StackLayout>
+                                            </ctk:Expander>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                            <!--#endregion-->
+                        </StackLayout>
+                    </Border.Content>
+                </Border>
+                <!--#endregion-->
+                <!--#region -->
+                <!-- Border is container with a border around it -->
+                <Border Padding="15" BackgroundColor="#F5F5F5" Stroke="#EAEAEA" StrokeThickness="2" Margin="20,0,0,10" HorizontalOptions="End">
                     <Border.StrokeShape>
                         <shapes:RoundRectangle CornerRadius="10,10,10,10" />
                     </Border.StrokeShape>
                     <Border.Content>
                         <StackLayout>
-                            <ctk:Expander Padding="0,0,0,10">
-                                <ctk:Expander.Header>
-                                    <Label Text="Feed the Dog" FontSize="18" FontFamily="MontserratBold" />
-                                </ctk:Expander.Header>
-                                <StackLayout>
-                                    <Label Text="Content for section 1" Padding="7" FontFamily="MontserratLight"/>
-                                    <DatePicker MinimumDate="01/01/2022" MaximumDate="12/31/3000" Date="06/21/3000" />
-                                </StackLayout>
-
-                            </ctk:Expander>
-                            <ctk:Expander Padding="0,0,0,10">
-                                <ctk:Expander.Header>
-                                    <Label Text="Call Mom" FontSize="18" FontFamily="MontserratBold" />
-                                </ctk:Expander.Header>
-                                <Label Text="Content for section 1" Padding="7" FontFamily="MontserratLight"/>
-                            </ctk:Expander>
-                            <ctk:Expander Padding="0,0,0,10">
-                                <ctk:Expander.Header>
-                                    <Label Text="Do this dishes" FontSize="18" FontFamily="MontserratBold" />
-                                </ctk:Expander.Header>
-                                <Label Text="Content for section 1" Padding="7" FontFamily="MontserratLight"/>
-                            </ctk:Expander>
+                            
                         </StackLayout>
-
                     </Border.Content>
                 </Border>
-            </StackLayout>
+            </HorizontalStackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
-    
-    
