@@ -4,9 +4,9 @@
              x:Class="GoalsApp.Views.ReminderPage"
              Title="ReminderPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
+        <Button 
+            Text="Click to send a notification"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>

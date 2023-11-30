@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctk="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
              x:Class="GoalsApp.Views.UIExperiments"
+             xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
              Title="UIExperiments">
-    <StackLayout Margin="10">
-        <Label Text="Popup Demo (DEMO NOT DONE)" FontSize="24"/>
-        <Button Text="Click for a Popup"/>
-        <!--Need to implement IPopup Service, and register the popup etc. https://learn.microsoft.com/en-us/dotnet/communitytoolkit/maui/views/popup-->
-    </StackLayout>
+    <ScrollView>
+        <ImageButton Source="left_arrow.png" HeightRequest="200" WidthRequest="300" BackgroundColor="black"/>
+    </ScrollView>
+    
 </ContentPage>

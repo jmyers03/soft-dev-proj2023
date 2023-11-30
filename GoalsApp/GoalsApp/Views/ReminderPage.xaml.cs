@@ -6,4 +6,5 @@ public partial class ReminderPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
 }

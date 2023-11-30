@@ -4,78 +4,119 @@
        xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
        x:Class="GoalsApp.Views.TaskPage">
 
-    <ContentPage.Content>
-        <!-- ScrollView allows scrolling if content exceeds page size -->
-        <ScrollView>
-            <!-- StackLayout stacks its child elements -->
-            <HorizontalStackLayout Padding="20">
-                <!--#region WholeTasksTile-->
-                <!-- Border is container with a border around it -->
-                <Border Padding="15" BackgroundColor="#F5F5F5" Stroke="#EAEAEA" Margin="0,0,0,10">
-                    <!-- StrokeShape defines the shape of the border -->
-                    <Border.StrokeShape>
-                        <shapes:RoundRectangle CornerRadius="10,10,10,10" />
-                    </Border.StrokeShape>
-                    <!-- Border.Content is the content inside the border -->
-                    <Border.Content>
-                        <!-- StackLayout stacks its child elements -->
-                        <StackLayout>
-                            <!-- Label defines text -->
-                            <Label Text="My Tasks" FontFamily="MontserratBold" FontSize="35" Padding="0,0,0,10"/>
-                            <!-- Button is a clickable control that triggers an event -->
-                            <Button Text="+ New Task" FontSize="15" HorizontalOptions="Start" BackgroundColor="#4DAA57" Margin="0,0,0,15"/>
-                            <!-- CollectionView displays a collection with the Tasks list from our ViewModel -->
-                            <!--#region CollectionView-->
-                            <CollectionView ItemsSource="{Binding Tasks}">
-                                <!-- ListView.ItemTemplate defines the appearance of each item as the DataTemplate below -->
-                                <CollectionView.ItemTemplate>
-                                    <!-- DataTemplate defines what each entry in the Collection will be -->
-                                    <DataTemplate>
-                                        <!-- StackLayout stacks its child elements -->
-                                        <StackLayout>
-                                            <!-- Expander is a container that can be expanded or collapsed -->
-                                            <ctk:Expander Padding="0,0,0,10">
-                                                <!-- Expander.Header is the content of the header -->
-                                                <ctk:Expander.Header>
-                                                    <Label Text="{Binding Title}" FontSize="18" FontFamily="MontserratBold" />
-                                                </ctk:Expander.Header>
-                                                <!-- StackLayout stacks its child elements -->
-                                                <StackLayout>
-                                                    <!-- Editor is a multi-line text input field -->
-                                                    <Editor Placeholder="Task Description:" Text="{Binding Description}" Margin="0,7,0,0" VerticalOptions="Center"/>
-                                                    <!-- HorizontalStackLayout stacks its child elements horizontally -->
-                                                    <HorizontalStackLayout>
-                                                        <!-- Label displays static text -->
-                                                        <Label Text="Completion Date and Time:" Margin="0,7,7,0" FontFamily="MontserratLight" VerticalOptions="Center"/>
-                                                        <!-- DatePicker allows users to pick a date -->
-                                                        <DatePicker MinimumDate="01/01/2022" Date="{Binding CompletionDate}" MaximumDate="12/31/3000" Margin="0,7,7,0" VerticalOptions="Center"/>
-                                                        <!-- TimePicker allows users to pick a time -->
-                                                        <TimePicker Time="12:00" Format="t" Margin="0,7,0,0" VerticalOptions="Center"/>
-                                                    </HorizontalStackLayout>
-                                                </StackLayout>
-                                            </ctk:Expander>
-                                        </StackLayout>
-                                    </DataTemplate>
-                                </CollectionView.ItemTemplate>
-                            </CollectionView>
-                            <!--#endregion-->
-                        </StackLayout>
-                    </Border.Content>
-                </Border>
-                <!--#endregion-->
-                <!--#region -->
-                <!-- Border is container with a border around it -->
-                <Border Padding="15" BackgroundColor="#F5F5F5" Stroke="#EAEAEA" StrokeThickness="2" Margin="20,0,0,10" HorizontalOptions="End">
-                    <Border.StrokeShape>
-                        <shapes:RoundRectangle CornerRadius="10,10,10,10" />
-                    </Border.StrokeShape>
-                    <Border.Content>
-                        <StackLayout>
-                            
-                        </StackLayout>
-                    </Border.Content>
-                </Border>
-            </HorizontalStackLayout>
-        </ScrollView>
-    </ContentPage.Content>
+
+    <ScrollView Margin="5">
+
+        <!--TASKS-->
+        <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="Center" AlignItems="Start" Margin="0">
+            <Border Padding="15" BackgroundColor="#F5F5F5" Stroke="#EAEAEA" Margin="15">
+                <Border.StrokeShape>
+                    <shapes:RoundRectangle CornerRadius="10,10,10,10" />
+                </Border.StrokeShape>
+                <StackLayout>
+                    <Label Text="My Tasks" FontFamily="MontserratBold" FontSize="30" Padding="0,0,0,10"/>
+                    <Button Text="+ New Task" FontSize="12" Clicked ="AddDefaultTask" HorizontalOptions="Start" BackgroundColor="#4DAA57" Margin="0,0,0,15"/>
+                    <CollectionView ItemsSource="{Binding currentTasks}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="40" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Grid.Column="0">
+                                        <CheckBox IsChecked="False" VerticalOptions="Center" CheckedChanged="CurrentCheckBox_CheckedChanged"/>
+                                    </StackLayout>
+
+                                    <FlexLayout x:Name="TaskTitleRow" Grid.Column="1">
+                                        <ctk:Expander Padding="0,0,0,10">
+                                            <ctk:Expander.Header>
+                                                <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="Start" AlignItems="Start">
+                                                    <Label Text="{Binding Title}" VerticalOptions="Center" FontSize="20" FontFamily="MontserratBold" />
+                                                </FlexLayout>
+                                            </ctk:Expander.Header>
+                                            <StackLayout>
+                                                <Editor Placeholder="Task Description:" VerticalOptions="Fill" Text="{Binding Description}" HeightRequest="70"/>
+                                                <Label Text="Completion Date and Time:" FontFamily="MontserratLight"/>
+                                                <HorizontalStackLayout>
+                                                    <DatePicker MinimumDate="01/01/2022" Date="{Binding CompletionDate}" MaximumDate="12/31/3000"/>
+                                                    <TimePicker Time="12:00" Format="t"/>
+                                                </HorizontalStackLayout>
+                                            </StackLayout>
+                                        </ctk:Expander>
+                                    </FlexLayout>
+
+                                    <StackLayout Grid.Column="2">
+                                        <ImageButton Padding="3" Clicked="DeleteTask" Source="trash_can.png" BackgroundColor="Red" HorizontalOptions="End" WidthRequest="25"  HeightRequest="25" CornerRadius="5"/>
+                                    </StackLayout>
+                                </Grid>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </Border>
+            
+            
+            <!--COMPLETED TASKS-->
+            <Border Padding="15" BackgroundColor="#F5F5F5" Stroke="#EAEAEA" Margin="15">
+                <Border.StrokeShape>
+                    <shapes:RoundRectangle CornerRadius="10,10,10,10" />
+                </Border.StrokeShape>
+                <StackLayout>
+                    <Label Text="Completed Tasks" FontFamily="MontserratBold" FontSize="30" Padding="0,0,0,10"/>
+                    <CollectionView ItemsSource="{Binding completedTasks}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="40" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Grid.Column="0">
+                                        <ImageButton Padding="3" Clicked="MoveBack_Clicked" Source="left_arrow.png" HorizontalOptions="Start" WidthRequest="35" BackgroundColor="#F5F5F5" HeightRequest="25" CornerRadius="5"/>
+                                    </StackLayout>
+
+                                    <FlexLayout x:Name="TaskTitleRow" Grid.Column="1">
+                                        <ctk:Expander Padding="0,0,0,10">
+                                            <ctk:Expander.Header>
+                                                <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="Start" AlignItems="Start">
+                                                    <Label Text="{Binding Title}" VerticalOptions="Center" FontSize="20" FontFamily="MontserratBold" />
+                                                </FlexLayout>
+                                            </ctk:Expander.Header>
+                                            <StackLayout>
+                                                <Editor Placeholder="Task Description:" IsReadOnly="true" VerticalOptions="Fill" Text="{Binding Description}" HeightRequest="70"/>
+                                                <Label Text="Completion Date and Time:" FontFamily="MontserratLight"/>
+                                                <HorizontalStackLayout>
+                                                    <DatePicker MinimumDate="01/01/2022" Date="{Binding CompletionDate}" MaximumDate="12/31/3000"/>
+                                                    <TimePicker Time="12:00" Format="t"/>
+                                                </HorizontalStackLayout>
+                                            </StackLayout>
+                                        </ctk:Expander>
+                                    </FlexLayout>
+                                    
+                                    <!--Complted Date-->
+                                    <StackLayout Grid.Column="2">
+                                        <Label Text="{Binding CompletionDate}" FontSize="12" HorizontalOptions="End"/>
+                                    </StackLayout>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </Border>
+        </FlexLayout>
+    </ScrollView>
 </ContentPage>
