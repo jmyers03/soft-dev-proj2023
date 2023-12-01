@@ -4,13 +4,13 @@ namespace GoalsApp.Views
 {
     public partial class LoginPage : ContentPage
     {
-        SQLdbContexts db;
+        //SQLdbContexts db;
         public LoginPage()
         {
             InitializeComponent();
 
-            db= new SQLdbContexts();
-            Model.UserClass user = db.GetAllProducts().Result.FirstOrDefault();
+            //db= new SQLdbContexts();
+            //Model.UserClass user = db.GetAllProducts().Result.FirstOrDefault();
 
             // Attach event handlers
             SignInButton.Clicked += OnSignInButtonClicked;

@@ -4,10 +4,9 @@
              xmlns:cal="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
              x:Class="GoalsApp.Views.CalendarPage"
              Title="Calendar">
+    <StackLayout>
+        <cal:Calendar/>
 
-    <cal:Calendar EventsScrollViewVisible="True" SelectedDateColor="Blue">
-
-    </cal:Calendar>
-
+    </StackLayout>
 
 </ContentPage>
