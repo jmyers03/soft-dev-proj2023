@@ -1,4 +1,8 @@
 ﻿using Microsoft.Maui.Controls;
+using SQLite;
+using System.Data;
+using System.Data.SqlClient;
+
 
 namespace GoalsApp.Views
 {
@@ -12,12 +16,50 @@ namespace GoalsApp.Views
             SignInButton.Clicked += OnSignInButtonClicked;
         }
 
-        private void OnSignInButtonClicked(object sender, EventArgs e)
+        SQLiteConnection conn = new SQLiteConnection(@"Data Source connection");
+
+        private async void OnSignInButtonClicked(object sender, EventArgs e)
         {
             // Handle the Sign In button click here
             // You can access the username and password using Entry controls by their names
             string username = UsernameLabel.Text;
             string password = PasswordLabel.Text;
+
+
+            try
+            {
+                string query = "SELECT * FROM login_credentials WHERE username = '" + UsernameLabel.Text + "' AND password='" + PasswordLabel.Text + "'";
+                 sqlDataAdapter = new SqlDataAdapter(query, conn);
+
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                if(dataTable.Rows.Count > 0)
+                {
+                    username = UsernameLabel.Text;
+                    password = PasswordLabel.Text;
+
+                    //page that needed to be load next
+                    Menuform form2 = new Menuform();
+                    form2.Show();
+                    this.Hide(); 
+                }
+
+
+            }
+            catch
+            {
+                await DisplayAlert("Slow down there tiger!", "Looks like your username or password is not correct. Please re-enter credentials", "OK");
+                UsernameLabel.ClearValue();
+                PasswordLabel.ClearValue();
+
+                //to focus username
+                UsernameLabel.Focus();
+            }
+            finally
+            {
+                conn.Close();
+            }
 
             /* Check if the provided credentials are valid by querying the database
             if (AppDatabase.AuthenticateUser(username, password))
