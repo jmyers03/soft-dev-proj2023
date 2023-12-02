@@ -6,4 +6,19 @@ public partial class Dashboard : ContentPage
 	{
         InitializeComponent();
     }
+
+    private void ToGoalsButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(GoalPage));
+    }
+
+    private void ToTasksButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(TaskPage));
+    }
+
+    private void ToCalendarButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(CalendarPage));
+    }
 }

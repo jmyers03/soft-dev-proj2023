@@ -34,6 +34,7 @@ public static class MauiProgram
         builder.Services.AddTransient<PasswordRecovery>();
         builder.Services.AddTransient<SignUpPage>();
 
+		//builder.Services.AddSingleton<SQLdbContexts>();
         return builder.Build();
 	}
 }

@@ -20,15 +20,15 @@
             <!--Desired outcome of button navigation for user is to be as simple as possible without any tabs(unnecessary)-->
             <!--Directs you to list of Goals-->
             <Button x:Name="ToGoalsButton" Margin="0,15" BackgroundColor="{StaticResource Secondary}"
-                    Text="Goals" TextColor="{StaticResource Primary}"/>
+                    Text="Goals" TextColor="{StaticResource Primary}" Clicked="ToGoalsButton_Clicked" />
 
             <!--Directs you to Tasks-->
             <Button x:Name="ToTasksButton" Margin="0,15" BackgroundColor="{StaticResource Secondary}"
-                    Text="Tasks" TextColor="{StaticResource Primary}"/>
+                    Text="Tasks" TextColor="{StaticResource Primary}" Clicked="ToTasksButton_Clicked"/>
 
             <!--Directs you to Calendar-->
             <Button x:Name="ToCalendarButton" Margin="0,15" BackgroundColor="{StaticResource Secondary}"
-                    Text="Calendar" TextColor="{StaticResource Primary}"/>
+                    Text="Calendar" TextColor="{StaticResource Primary}" Clicked="ToCalendarButton_Clicked"/> 
 
 
             <!--Bottom Ribbon stack-->
