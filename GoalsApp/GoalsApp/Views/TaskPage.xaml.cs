@@ -1,5 +1,7 @@
 using GoalsApp.ViewModels;
 using GoalsApp.Models;
+using Microsoft.Maui.Controls;
+
 
 namespace GoalsApp.Views;
 
@@ -13,7 +15,7 @@ public partial class TaskPage : ContentPage
         BindingContext = new TaskPageViewModel();
     }
 
-    // May need to viewModel so the View does not know about the Model (follows MVVM)
+    // May need to viewModel so the View does not know about the Model (follows MVVM) - will move them and will have to push and pull data to the database in the methods 
     private void AddDefaultTask(object sender, EventArgs e)
     {
         var defaultTask = new MyTask { Id = "0", Title = "Default Task", Description = "Default Description" };
@@ -54,5 +56,16 @@ public partial class TaskPage : ContentPage
         // casting bindingcontext of imagebutton to MyTask and calling it task
         var task = (MyTask)moveBack.BindingContext;
         ((TaskPageViewModel)BindingContext).MoveToCurrent(task);
+    }
+
+    private void GoalPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        var selectedGoal = (Goal)picker.SelectedItem;
+        var parent = (StackLayout)picker.Parent;
+        var task = (MyTask)parent.BindingContext;
+
+        task.GoalId = selectedGoal.Id;
+
     }
 }

@@ -1,4 +1,5 @@
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage x:Name="TheTaskPage" 
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"    
        xmlns:ctk="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
        xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
@@ -37,17 +38,20 @@
                                     <FlexLayout x:Name="TaskTitleRow" Grid.Column="1">
                                         <ctk:Expander Padding="0,0,0,10">
                                             <ctk:Expander.Header>
-                                                <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="Start" AlignItems="Start">
-                                                    <Label Text="{Binding Title}" VerticalOptions="Center" FontSize="20" FontFamily="MontserratBold" />
+                                                <FlexLayout>
+                                                    <Label x:Name="TaskTitle" Text="{Binding Title}" VerticalOptions="Center" FontSize="20" FontFamily="MontserratBold"/>
                                                 </FlexLayout>
                                             </ctk:Expander.Header>
-                                            <StackLayout>
-                                                <Editor Placeholder="Task Description:" VerticalOptions="Fill" Text="{Binding Description}" HeightRequest="70"/>
-                                                <Label Text="Completion Date and Time:" FontFamily="MontserratLight"/>
-                                                <HorizontalStackLayout>
-                                                    <DatePicker MinimumDate="01/01/2022" Date="{Binding CompletionDate}" MaximumDate="12/31/3000"/>
-                                                    <TimePicker Time="12:00" Format="t"/>
+                                            <StackLayout Padding="0,10,0,10">
+                                                <Entry Placeholder="Task Description:" FontFamily="Montserrat" VerticalOptions="Fill" Text="{Binding Description}" HeightRequest="70"/>
+                                                <Label Text="Completion Date and Time:" FontFamily="Montserrat" Padding="0,20,0,0"/>
+                                                <HorizontalStackLayout Padding="0,0,0,20">
+                                                    <DatePicker MinimumDate="01/01/2022" Date="{Binding CompletionDate}" MaximumDate="12/31/3000" VerticalOptions="Center"/>
+                                                    <TimePicker Time="12:00" Format="t" VerticalOptions="Center"/>
                                                 </HorizontalStackLayout>
+                                                <StackLayout>
+                                                    <Picker Title="Select a Goal:" FontFamily="Montserrat" ItemsSource="{Binding BindingContext.currentGoals, Source={x:Reference TheTaskPage}}" VerticalOptions="Center" ItemDisplayBinding="{Binding Title}" SelectedIndexChanged="GoalPicker_SelectedIndexChanged"/>
+                                                </StackLayout>
                                             </StackLayout>
                                         </ctk:Expander>
                                     </FlexLayout>
@@ -93,16 +97,19 @@
                                         <ctk:Expander Padding="0,0,0,10">
                                             <ctk:Expander.Header>
                                                 <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="Start" AlignItems="Start">
-                                                    <Label Text="{Binding Title}" VerticalOptions="Center" FontSize="20" FontFamily="MontserratBold" />
+                                                    <Label x:Name="TaskLabel" Text="{Binding Title}" VerticalOptions="Center" FontSize="20" FontFamily="MontserratBold" />
                                                 </FlexLayout>
                                             </ctk:Expander.Header>
-                                            <StackLayout>
-                                                <Editor Placeholder="Task Description:" IsReadOnly="true" VerticalOptions="Fill" Text="{Binding Description}" HeightRequest="70"/>
-                                                <Label Text="Completion Date and Time:" FontFamily="MontserratLight"/>
-                                                <HorizontalStackLayout>
-                                                    <DatePicker MinimumDate="01/01/2022" Date="{Binding CompletionDate}" MaximumDate="12/31/3000"/>
-                                                    <TimePicker Time="12:00" Format="t"/>
+                                            <StackLayout Padding="0,10,0,10">
+                                                <Editor Placeholder="Task Description:" FontFamily="Montserrat" VerticalOptions="Fill" Text="{Binding Description}" HeightRequest="70"/>
+                                                <Label Text="Completion Date and Time:" FontFamily="Montserrat" Padding="0,20,0,0"/>
+                                                <HorizontalStackLayout Padding="0,0,0,20">
+                                                    <DatePicker MinimumDate="01/01/2022" Date="{Binding CompletionDate}" MaximumDate="12/31/3000" VerticalOptions="Center"/>
+                                                    <TimePicker Time="12:00" Format="t" VerticalOptions="Center"/>
                                                 </HorizontalStackLayout>
+                                                <StackLayout>
+                                                    <Picker Title="Select a Goal:" FontFamily="Montserrat" ItemsSource="{Binding BindingContext.currentGoals, Source={x:Reference TheTaskPage}}" VerticalOptions="Center" ItemDisplayBinding="{Binding Title}" SelectedIndexChanged="GoalPicker_SelectedIndexChanged"/>
+                                                </StackLayout>
                                             </StackLayout>
                                         </ctk:Expander>
                                     </FlexLayout>

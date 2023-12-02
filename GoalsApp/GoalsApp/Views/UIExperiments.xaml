@@ -5,8 +5,10 @@
              x:Class="GoalsApp.Views.UIExperiments"
              xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
              Title="UIExperiments">
-    <ScrollView>
-        <ImageButton Source="left_arrow.png" HeightRequest="200" WidthRequest="300" BackgroundColor="black"/>
-    </ScrollView>
-    
+
+    <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="Start" AlignItems="Start">
+        <Editor Text="{Binding Title}" Placeholder="Task Title:" VerticalOptions="Center" FontSize="20" FontFamily="MontserratBold" />
+    </FlexLayout>
+
+
 </ContentPage>
