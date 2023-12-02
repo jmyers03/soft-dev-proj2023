@@ -4,7 +4,7 @@ using GoalsApp.Models;
 
 namespace GoalsApp.ViewModels
 {
-    public class RemindersViewModel
+    public class RemindersPageViewModel
     {
         // ObservableCollections use the CollectionChanged event to notify the UI when the collection
         // is refreshed, or items are added or removed
@@ -14,7 +14,7 @@ namespace GoalsApp.ViewModels
         public ObservableCollection<Reminder> CompletedReminders { get; set; }
 
         // RemindersViewModel constructor
-        public RemindersViewModel()
+        public RemindersPageViewModel()
         {
             // Insert test data for upcoming reminders
             UpcomingReminders = new ObservableCollection<Reminder>
