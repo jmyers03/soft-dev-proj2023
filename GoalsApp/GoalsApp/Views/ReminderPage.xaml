@@ -1,12 +1,43 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GoalsApp.Views.ReminderPage"
-             Title="ReminderPage">
-    <VerticalStackLayout>
-        <Button 
-            Text="Click to send a notification"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"/>
-    </VerticalStackLayout>
+             xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="GoalsApp.Views.ReminderPage">
+
+    <StackLayout>
+        <!-- Display Upcoming Reminders -->
+        <Label Text="Upcoming Reminders" FontSize="Large" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" />
+        <CollectionView ItemsSource="{Binding UpcomingReminders}" SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Label Text="{Binding Title}" />
+                        <Label Text="{Binding DateTime}" />
+                        <Button Text="Mark as Completed" Command="{Binding Source={x:Reference RemindersPage}, Path=BindingContext.MarkAsCompletedCommand}" CommandParameter="{Binding}" />
+                        <Button Text="Delete Reminder" Command="{Binding Source={x:Reference RemindersPage}, Path=BindingContext.DeleteReminderCommand}" CommandParameter="{Binding}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Display Completed Reminders -->
+        <Label Text="Completed Reminders" FontSize="Large" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" />
+        <CollectionView ItemsSource="{Binding CompletedReminders}" SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Label Text="{Binding Title}" />
+                        <Label Text="{Binding DateTime}" />
+                        <Button Text="Mark as Upcoming" Command="{Binding Source={x:Reference RemindersPage}, Path=BindingContext.MarkAsUpcomingCommand}" CommandParameter="{Binding}" />
+                        <Button Text="Delete Reminder" Command="{Binding Source={x:Reference RemindersPage}, Path=BindingContext.DeleteReminderCommand}" CommandParameter="{Binding}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Add Reminder Button -->
+        <Button Text="Add Reminder" Command="{Binding Source={x:Reference RemindersPage}, Path=BindingContext.AddReminderCommand}" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" />
+    </StackLayout>
 </ContentPage>

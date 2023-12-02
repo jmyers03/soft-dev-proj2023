@@ -9,10 +9,11 @@ namespace GoalsApp.Models
 {
     public class Reminder
     {
-        public string Id { get; set; }
-        public string ReminderTitle { get; set; }
-        
-        //time the reminder should go off 
-        public string SetDateAndTime { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime DateTime { get; set; }
+        public bool Completed { get; set; } 
+
     }
 }
