@@ -10,7 +10,7 @@ namespace GoalsApp.Models
 {
     public class User
     {
-        internal int Id;
+        //internal int Id;
 
         //need a primarykey
         public Guid UserId { get; set; }
