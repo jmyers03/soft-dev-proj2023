@@ -1,14 +1,13 @@
 using GoalsApp.ViewModels;
 using GoalsApp.Models;
 using Plugin.LocalNotification;
-using GoalsApp.SharedFunctions;
+
 
 namespace GoalsApp.Views;
 
 public partial class ReminderPage : ContentPage
 {
     private RemindersPageViewModel _viewModel;
-    private GuidGenerator _guidGenerator;
 
     public ReminderPage()
     {
