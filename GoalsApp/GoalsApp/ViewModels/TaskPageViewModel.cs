@@ -25,16 +25,12 @@ namespace GoalsApp.ViewModels
         {
             DateTime TodayDate = DateTime.Now;
 
-            string editedTitle;
 
             // Current tasks starts as empty and GetTasks is called in code behind 
             currentTasks = new ObservableCollection<MyTask> { };
             //Insert completed task test data here  - will come from database based on userId
-            completedTasks = new ObservableCollection<MyTask>
-            {
-                new MyTask { Id = "1", Title = "This task should show as completed (Id=1)", Completed=true },
-                new MyTask { Id = "1", Title = "This task should show as completed (Id=2)", Completed=true }
-            };
+            completedTasks = new ObservableCollection<MyTask> { };
+            
 
             //Insert current Goal test data here - will come from database based on userId
             currentGoals = new ObservableCollection<Goal>
@@ -61,15 +57,18 @@ namespace GoalsApp.ViewModels
 
         }
 
-        public async Task GetTasks()
+        public async Task GetUserTasks()
         {
             var firebaseClient = new FirebaseClient("https://goalsapp-9c3f5-default-rtdb.firebaseio.com/");
 
+            //add only tasks with the userid 
             var allTasks = await firebaseClient
                 .Child("Tasks")
                 .OnceAsync<MyTask>();
+            
             currentTasks.Clear();
 
+            //get whether the task is completed or not
             foreach (var task in allTasks.Select(t => t.Object))
             {
                 currentTasks.Add(task);

@@ -19,9 +19,8 @@ public partial class TaskPage : ContentPage
 
     private async void InitializeViewModel()
     {
-        viewModel = new TaskPageViewModel();
         //sets the current Tasks list equal to the list 
-        await viewModel.GetTasks();
+        await viewModel.GetUserTasks();
         BindingContext = viewModel;
     }
 
