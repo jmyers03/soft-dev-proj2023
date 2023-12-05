@@ -6,7 +6,7 @@ public partial class CalendarPage : ContentPage
 {
 	public CalendarPage()
 	{
-		InitializeComponent();
+        InitializeComponent();
 		BindingContext = new CalendarPageViewModel();
 	}
 }
