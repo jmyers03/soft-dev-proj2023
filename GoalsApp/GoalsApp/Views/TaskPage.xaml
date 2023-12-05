@@ -50,7 +50,10 @@
                                                     <TimePicker Time="12:00" Format="t" VerticalOptions="Center"/>
                                                 </HorizontalStackLayout>
                                                 <StackLayout>
-                                                    <Picker Title="Select a Goal:" FontFamily="Montserrat" ItemsSource="{Binding BindingContext.currentGoals, Source={x:Reference TheTaskPage}}" VerticalOptions="Center" ItemDisplayBinding="{Binding Title}" SelectedIndexChanged="GoalPicker_SelectedIndexChanged"/>
+                                                    <Picker Title="Select a Goal:" FontFamily="Montserrat" ItemsSource="{Binding BindingContext.currentGoals, 
+                                                            Source={x:Reference TheTaskPage}}" VerticalOptions="Center"
+                                                            ItemDisplayBinding="{Binding Title}" SelectedIndexChanged="GoalPicker_SelectedIndexChanged"/>
+                                                    <Button Text="Save" Margin="0,10,0,0" Padding="10" Clicked="Button_Clicked"/>
                                                 </StackLayout>
                                             </StackLayout>
                                         </ctk:Expander>
