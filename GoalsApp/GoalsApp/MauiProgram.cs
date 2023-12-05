@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using GoalsApp.Views;
+//using Plugin.LocalNotification;
 
 namespace GoalsApp;
 
@@ -11,9 +12,10 @@ public static class MauiProgram
         
         // Initialise the toolkit
         builder.UseMauiApp<App>().UseMauiCommunityToolkit();
-        
+
         builder
-			.UseMauiApp<App>()
+            .UseMauiApp<App>()
+            //.UseLocalNotification()
 			.ConfigureFonts(fonts =>
 			{
                 //Old fonts:
