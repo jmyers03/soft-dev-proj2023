@@ -9,7 +9,7 @@ namespace GoalsApp.Models
 {
     public class Reminder
     {
-        public string Id { get; set; }
+        public string Key { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime? DateTime { get; set; }

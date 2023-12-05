@@ -13,7 +13,7 @@ namespace GoalsApp.Models
         //internal int Id;
 
         //need a primarykey
-        public Guid UserId { get; set; }
+        public string Key { get; set; }
         private string Username { get; set; }
         private string Password { get; set; }
     }

@@ -9,7 +9,7 @@ namespace GoalsApp.Models
 {
     public class Goal
     {
-        public string Id { get; set; }
+        public string Key { get; set; }
         public string Title { get; set; }
         public string Description { get; set; } = null;
         // Gets the current date and sets it to the current date if there is not one

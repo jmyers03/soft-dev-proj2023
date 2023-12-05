@@ -9,7 +9,7 @@ namespace GoalsApp.Models
     //"Task" is already a C# keyword, so made the class name "MyTask" 
     public class MyTask
     {
-        public string Id { get; set; }
+        public string Key { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         // Gets the current date and sets it to the current date if there is not one
