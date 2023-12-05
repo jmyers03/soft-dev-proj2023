@@ -24,11 +24,10 @@ public partial class ReminderPage : ContentPage
             DatePicker.Date.Year, DatePicker.Date.Month, DatePicker.Date.Day,
             TimePicker.Time.Hours, TimePicker.Time.Minutes, 0);
         var selectedTask = pickerTask.SelectedItem as MyTask;
-        var taskNumber = selectedTask.Id;
+        var taskNumber = selectedTask.Key;
 
         Reminder newReminder = new Reminder
         {
-            Id = _viewModel.GenerateUniqueId(),
             Title = title,
             Description = description,
             DateTime = dateTime,

@@ -1,43 +1,29 @@
-﻿using Microsoft.Maui.Controls;
+﻿using GoalsApp.ViewModels;
+using Microsoft.Maui.Controls;
 
 namespace GoalsApp.Views
 {
     public partial class LoginPage : ContentPage
     {
+        LoginPageViewModel viewModel = new LoginPageViewModel();
         //SQLdbContexts db;
         public LoginPage()
         {
             InitializeComponent();
 
-            //db= new SQLdbContexts();
-            //Model.UserClass user = db.GetAllProducts().Result.FirstOrDefault();
 
             // Attach event handlers
             SignInButton.Clicked += OnSignInButtonClicked;
         }
 
-        private void OnSignInButtonClicked(object sender, EventArgs e)
+        private async void OnSignInButtonClicked(object sender, EventArgs e)
         {
             // Handle the Sign In button click here
             // You can access the username and password using Entry controls by their names
-            string username = UsernameLabel.Text;
-            string password = PasswordLabel.Text;
+            string username = UsernameEntry.Text;
+            string password = PasswordEntry.Text;
 
-            /* Check if the provided credentials are valid by querying the database
-            if (AppDatabase.AuthenticateUser(username, password))
-            {
-                // Authentication successful
-                DisplayAlert("Success", "Authentication successful", "OK");
-
-                // Here, you can navigate to the main app page or perform any other action
-                // For example, you can use Navigation.PushAsync(new MainPage());
-            }
-            else
-            {
-                // Authentication failed
-                DisplayAlert("Error", "Authentication failed. Please check your credentials.", "OK");
-            }
-            */
+            await viewModel.LoginAttempt(username, password);
         }
 
         private async void OnForgotPasswordLabelTapped(object sender, EventArgs e)

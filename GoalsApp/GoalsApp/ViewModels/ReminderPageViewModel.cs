@@ -21,23 +21,23 @@ namespace GoalsApp.ViewModels
             // Insert test data for upcoming reminders
             UpcomingReminders = new ObservableCollection<Reminder>
             {
-                new Reminder { Id = "1", Title = "Upcoming Reminder 1", DateTime = DateTime.Now.AddHours(1) },
-                new Reminder { Id = "2", Title = "Upcoming Reminder 2", DateTime = DateTime.Now.AddHours(2) },
+                new Reminder { Key = "1", Title = "Upcoming Reminder 1", DateTime = DateTime.Now.AddHours(1) },
+                new Reminder { Key = "2", Title = "Upcoming Reminder 2", DateTime = DateTime.Now.AddHours(2) },
                 // Add more test data as needed
             };
 
             // Insert test data for completed reminders
             CompletedReminders = new ObservableCollection<Reminder>
             {
-                new Reminder { Id = "3", Title = "Completed Reminder 1", DateTime = DateTime.Now.AddHours(-1), Completed = true },
-                new Reminder { Id = "4", Title = "Completed Reminder 2", DateTime = DateTime.Now.AddHours(-2), Completed = true },
+                new Reminder { Key = "3", Title = "Completed Reminder 1", DateTime = DateTime.Now.AddHours(-1), Completed = true },
+                new Reminder { Key = "4", Title = "Completed Reminder 2", DateTime = DateTime.Now.AddHours(-2), Completed = true },
                 // Add more test data as needed
             };
 
             currentTasks = new ObservableCollection<MyTask>
             {
-                new MyTask { Id = "5", Title = "This task has a description (Id=2)", Description = "Test Description"},
-                new MyTask { Id = "6", Title = "This task has a description (Id=2)", Description = "Test Description"},
+                new MyTask { Key = "5", Title = "This task has a description (Id=2)", Description = "Test Description"},
+                new MyTask { Key = "6", Title = "This task has a description (Id=2)", Description = "Test Description"},
             };
         }
 

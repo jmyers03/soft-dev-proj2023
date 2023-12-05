@@ -55,7 +55,6 @@ namespace GoalsApp.ViewModels
 
         }
 
-
         public async Task GetUserTasks()
         {
             var firebaseClient = new FirebaseClient("https://goalsapp-9c3f5-default-rtdb.firebaseio.com/");

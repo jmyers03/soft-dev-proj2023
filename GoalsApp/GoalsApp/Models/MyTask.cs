@@ -19,5 +19,6 @@ namespace GoalsApp.Models
         //how long it will take to complete the task 
         public string TimeToComplete { get; set; }
         public bool Completed { get; set; } = false;
+        public string UserId { get; set; }
     }
 }

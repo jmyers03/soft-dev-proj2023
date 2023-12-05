@@ -24,7 +24,8 @@ public partial class TaskPage : ContentPage
         BindingContext = viewModel;
     }
 
-    // May need to viewModel so the View does not know about the Model (follows MVVM) - will move them and will have to push and pull data to the database in the methods 
+    // May need to viewModel so the View does not know about the Model (follows MVVM)
+    // - will move them and will have to push and pull data to the database in the methods 
     private void AddDefaultTask(object sender, EventArgs e)
     {
         var newTaskList = viewModel.AddTask();
@@ -74,7 +75,7 @@ public partial class TaskPage : ContentPage
         var parent = (StackLayout)picker.Parent;
         var task = (MyTask)parent.BindingContext;
 
-        task.GoalId = selectedGoal.Id;
+        task.GoalId = selectedGoal.Key;
 
     }
 
