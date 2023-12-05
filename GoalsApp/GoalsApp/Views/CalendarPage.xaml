@@ -4,15 +4,12 @@
              xmlns:cal="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
              x:Class="GoalsApp.Views.CalendarPage"
              Title="Calendar">
+    <StackLayout>
 
-    <cal:Calendar Events="{Binding Events}" EventsScrollViewVisible="True" SelectedDateColor="Blue">
-        <cal:Calendar.EventTemplate>
-            <DataTemplate>
-                <VerticalStackLayout>
-                    <Label Text="{Binding Name}" FontSize="20" FontAttributes="Bold"></Label>
-                    <Label Text="{Binding Description}"></Label>
-                </VerticalStackLayout>
-            </DataTemplate>
-        </cal:Calendar.EventTemplate>
-    </cal:Calendar>
+        <cal:Calendar EventsScrollViewVisible="True" SelectedDateColor="Blue">
+
+        </cal:Calendar>
+        
+    </StackLayout>
+
 </ContentPage>
