@@ -7,16 +7,24 @@ namespace GoalsApp.Views;
 
 public partial class ReminderPage : ContentPage
 {
-    private RemindersPageViewModel _viewModel;
+    RemindersPageViewModel _viewModel = new RemindersPageViewModel();
 
     public ReminderPage()
     {
 		InitializeComponent();
-        _viewModel = new RemindersPageViewModel();
+
+        InitializeViewModel();
+    }
+
+    private async void InitializeViewModel()
+    {
+        //sets the current Tasks list equal to the list 
+        await _viewModel.GetUserReminders();
+        await _viewModel.GetUserTasks();
         BindingContext = _viewModel;
     }
 
-    private void AddReminder_Clicked(object sender, EventArgs e)
+    private async void AddReminder_Clicked(object sender, EventArgs e)
     {
         string title = TitleEntry.Text;
         string description = DescriptionEntry.Text;
@@ -24,34 +32,33 @@ public partial class ReminderPage : ContentPage
             DatePicker.Date.Year, DatePicker.Date.Month, DatePicker.Date.Day,
             TimePicker.Time.Hours, TimePicker.Time.Minutes, 0);
         var selectedTask = pickerTask.SelectedItem as MyTask;
-        var taskNumber = selectedTask.Id;
+        var taskNumber = selectedTask.Key;
 
         Reminder newReminder = new Reminder
         {
-            Id = _viewModel.GenerateUniqueId(),
             Title = title,
             Description = description,
-            DateTime = dateTime,
-            MyTaskId = taskNumber
+            AlertDateTime = dateTime,
+            MyTaskKey = taskNumber
         };
 
         // Handle the Add Reminder action
-        _viewModel.AddReminder(newReminder);
+        await _viewModel.AddReminder(newReminder);
 
         var request = new NotificationRequest
         {
             Title = newReminder.Title,
             Description = newReminder.Description,
-            NotificationId = newReminder.Id.GetHashCode(),
+            //NotificationId = newReminder.Key.GetHashCode(),
             BadgeNumber = 42,
             Schedule = new NotificationRequestSchedule
             {
-                NotifyTime = newReminder.DateTime.Value,
+                NotifyTime = newReminder.AlertDateTime.Value,
                 NotifyRepeatInterval = TimeSpan.FromMinutes(10) // Set the repeat interval as needed
             }
         };
 
-        LocalNotificationCenter.Current.Show(request);
+        await LocalNotificationCenter.Current.Show(request);
 
         // Clear the text in the Entry fields
         TitleEntry.Text = "";
@@ -86,12 +93,5 @@ public partial class ReminderPage : ContentPage
             // Handle the Mark as Upcoming action
             _viewModel.MarkAsUpcoming(reminder);
         }
-    }
-
-    
-    private void TaskPicker_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        var picker = (Picker)sender;
-        var selectedTask = (MyTask)picker.SelectedItem;
     }
 }

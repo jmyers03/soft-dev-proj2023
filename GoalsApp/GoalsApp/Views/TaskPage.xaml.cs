@@ -74,7 +74,7 @@ public partial class TaskPage : ContentPage
         var parent = (StackLayout)picker.Parent;
         var task = (MyTask)parent.BindingContext;
 
-        task.GoalId = selectedGoal.Id;
+        task.GoalKey = selectedGoal.Key;
 
     }
 

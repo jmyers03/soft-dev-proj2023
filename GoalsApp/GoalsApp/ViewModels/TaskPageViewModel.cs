@@ -35,9 +35,9 @@ namespace GoalsApp.ViewModels
             //Insert current Goal test data here - will come from database based on userId
             currentGoals = new ObservableCollection<Goal>
             {
-                new Goal { Id = "1", Title = "Goal title id=1", Description = "This is a test goal description" },
-                new Goal { Id = "2", Title = "Goal title id=2", Description = "This is a test goal description" },
-                new Goal { Id = "3", Title = "Goal title id=3", Description = "This is a test goal description" }
+                new Goal { Key = "1", Title = "Goal title id=1", Description = "This is a test goal description" },
+                new Goal { Key = "2", Title = "Goal title id=2", Description = "This is a test goal description" },
+                new Goal { Key = "3", Title = "Goal title id=3", Description = "This is a test goal description" }
             };
         }
         public void MoveToCompleted(MyTask task)
