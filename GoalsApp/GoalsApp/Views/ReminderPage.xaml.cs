@@ -1,6 +1,7 @@
 using GoalsApp.ViewModels;
 using GoalsApp.Models;
-using Plugin.LocalNotification;
+//*******UNCOMMENT THIS******////
+//using Plugin.LocalNotification;
 
 
 namespace GoalsApp.Views;
@@ -45,20 +46,20 @@ public partial class ReminderPage : ContentPage
         // Handle the Add Reminder action
         await _viewModel.AddReminder(newReminder);
 
-        var request = new NotificationRequest
-        {
-            Title = newReminder.Title,
-            Description = newReminder.Description,
-            //NotificationId = newReminder.Key.GetHashCode(),
-            BadgeNumber = 42,
-            Schedule = new NotificationRequestSchedule
-            {
-                NotifyTime = newReminder.AlertDateTime.Value,
-                NotifyRepeatInterval = TimeSpan.FromMinutes(10) // Set the repeat interval as needed
-            }
-        };
-
-        await LocalNotificationCenter.Current.Show(request);
+        //*******UNCOMMENT THIS******////
+        //var request = new NotificationRequest
+        //{
+        //    Title = newReminder.Title,
+        //    Description = newReminder.Description,
+        //    //NotificationId = newReminder.Key.GetHashCode(),
+        //    BadgeNumber = 42,
+        //    Schedule = new NotificationRequestSchedule
+        //    {
+        //        NotifyTime = newReminder.AlertDateTime.Value,
+        //        NotifyRepeatInterval = TimeSpan.FromMinutes(10) // Set the repeat interval as needed
+        //    }
+        //};
+        //await LocalNotificationCenter.Current.Show(request);
 
 
         // Clear the text in the Entry fields
