@@ -12,9 +12,10 @@ namespace GoalsApp.Models
         public string Key { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public DateTime? DateTime { get; set; }
+        public DateTime? AlertDateTime { get; set; }
         public bool Completed { get; set; }
-        public string MyTaskId { get; set; } // Unique identifier for the associated task
+        public string MyTaskKey { get; set; } // Unique identifier for the associated task
+        public string UserKey { get; set; }
 
     }
 }

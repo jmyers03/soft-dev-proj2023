@@ -8,7 +8,7 @@ namespace GoalsApp.Models
 {
     internal class UserSettings
     {
-        public string Key { get; set; }
+        public string UserKey { get; set; }
         //true or false for having dark mode enabled 
         public bool DarkModeFlag { get; set; }
     }
