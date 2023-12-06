@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 using Firebase.Database;
 using Firebase.Database.Query;
 using GoalsApp.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using GoalsApp.Shared;
 
 namespace GoalsApp.ViewModels
 {
     public class TaskPageViewModel 
     {
+        private FirebaseService firebaseService;
         //OberservableCollections use the CollectionChanged event to notiify the UI when the collection
         //is refreshed, or items are added or removed 
         //creates completed and current tasks (pull in entries for each list from the database by using the Completed property)
@@ -23,21 +24,20 @@ namespace GoalsApp.ViewModels
         //TaskViewModel constructor 
         public TaskPageViewModel()
         {
+            firebaseService = new FirebaseService("https://goalsapp-9c3f5-default-rtdb.firebaseio.com/");
             DateTime TodayDate = DateTime.Now;
 
 
             // Current tasks starts as empty and GetTasks is called in code behind 
             currentTasks = new ObservableCollection<MyTask> { };
+            
             //Insert completed task test data here  - will come from database based on userId
             completedTasks = new ObservableCollection<MyTask> { };
             
-
             //Insert current Goal test data here - will come from database based on userId
-            currentGoals = new ObservableCollection<Goal>
-            {
-                
-            };
+            currentGoals = new ObservableCollection<Goal>{ };
         }
+
         public void MoveToCompleted(MyTask task)
         {
             currentTasks.Remove(task);
@@ -47,7 +47,9 @@ namespace GoalsApp.ViewModels
         public void MoveToCurrent(MyTask task)
         {
             completedTasks.Remove(task);
-            currentTasks.Insert(0,task);
+
+            currentTasks = firebaseService.GetTasksByUserId(); 
+            //currentTasks.Insert(0,task);
         }
 
         public void ModifyCompletedTask(MyTask task, Goal goal)

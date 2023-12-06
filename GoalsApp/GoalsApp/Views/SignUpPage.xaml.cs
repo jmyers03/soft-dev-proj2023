@@ -2,33 +2,43 @@ using Microsoft.Maui.Controls;
 using System.Windows.Input;
 using System.Threading.Tasks;
 using GoalsApp;
+using GoalsApp.ViewModels;
 
 namespace GoalsApp.Views
 {
     public partial class SignUpPage : ContentPage
     {
-        public ICommand RegisterCommand { get; }
-        public ICommand SignInCommand { get; }
-
+        SignUpPageViewModel viewModel = new SignUpPageViewModel();
         public SignUpPage()
         {
             InitializeComponent();
-            RegisterCommand = new Command(async () => await Register());
-            SignInCommand = new Command(async () => await SignIn());
-
-            BindingContext = this;
         }
 
-        private async Task Register()
+        private async void OnForgotPasswordLabelTapped(object sender, EventArgs e)
         {
-            // Handle registration logic here
-            // You can collect user input from the Entry fields and process the registration
+            // Navigate to the PasswordRecoveryPage using Shell navigation
+            await Shell.Current.GoToAsync(nameof(PasswordRecovery));
         }
 
-        private async Task SignIn()
+        private async void OnRegisterButtonClicked(object sender, EventArgs e)
         {
-            // Navigate to the Login Page
-            await Navigation.PushAsync(new LoginPage());
+            string username = UsernameEntry.Text;
+            string password = PasswordEntry.Text;
+
+            Validation.IsVisible = await viewModel.LoginAttempt(username, password);
+
+        }
+
+        private async void OnSignInButtonClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(LoginPage));
+        }
+
+        private async void OnContinueWithoutAccountLabelTapped(object sender, EventArgs e)
+        {
+            // Navigate to the Dashboard using Shell navigation
+            // the backslashes navigate to the FlyoutItems defined in AppShell.xaml
+            await Shell.Current.GoToAsync("//Dashboard");
         }
     }
 }

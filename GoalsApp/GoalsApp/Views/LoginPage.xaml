@@ -18,22 +18,22 @@
 
 
 
-            <Entry x:Name="UsernameEntry" BackgroundColor="White" Placeholder="Enter username/email"
+            <Entry x:Name="UsernameEntry" BackgroundColor="White" Placeholder="Enter username/email:"
         TextColor="Black" Margin="5,0,0,10" PlaceholderColor="Gray"/>
 
             <Label x:Name="PasswordLabel" Margin="5,0,0,10" TextColor="Black"
         FontSize="16" Text="Password"/>
 
 
-            <Entry x:Name="PasswordEntry" BackgroundColor="White" Placeholder="Enter password"
+            <Entry x:Name="PasswordEntry" BackgroundColor="White" Placeholder="Enter password:"
         TextColor="Black" Margin="5,0,0,10" PlaceholderColor="Gray" 
         IsPassword="True"/>
 
-
+            <Label x:Name="Validation" Text="Login Information Incorrect!" TextColor="Red" IsVisible="False" Margin="5,0,0,5"/>
 
             <!--Sign In Button-->
             <Button x:Name="SignInButton" Margin="0,15"
-        Text="Sign In" TextColor="White"/>
+        Text="Sign In" TextColor="White" Clicked="OnSignInButtonClicked"/>
 
             <BoxView HeightRequest="1" Color="LightGray" Margin="0,4,0,0"/>
 

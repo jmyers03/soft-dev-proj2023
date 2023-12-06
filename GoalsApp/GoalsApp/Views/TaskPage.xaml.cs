@@ -12,27 +12,6 @@ public partial class TaskPage : ContentPage
 	public TaskPage()
 	{
 		InitializeComponent();
-
-        //Method defined right below 
-        InitializeViewModel();
-    }
-
-    private async void InitializeViewModel()
-    {
-        //sets the current Tasks list equal to the list 
-        await viewModel.GetUserTasks();
-        BindingContext = viewModel;
-    }
-
-    // May need to viewModel so the View does not know about the Model (follows MVVM)
-    // - will move them and will have to push and pull data to the database in the methods 
-    private void AddDefaultTask(object sender, EventArgs e)
-    {
-        var newTaskList = viewModel.AddTask();
-
-        // Add the new task to the beginning of the list
-        // Converts BindingContext current datatype to TaskPageViewModel and inserting the new task in first position of list
-        
     }
 
     private void CurrentCheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)

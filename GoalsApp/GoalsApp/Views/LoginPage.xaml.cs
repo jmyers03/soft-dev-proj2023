@@ -6,14 +6,10 @@ namespace GoalsApp.Views
     public partial class LoginPage : ContentPage
     {
         LoginPageViewModel viewModel = new LoginPageViewModel();
-        //SQLdbContexts db;
+
         public LoginPage()
         {
             InitializeComponent();
-
-
-            // Attach event handlers
-            SignInButton.Clicked += OnSignInButtonClicked;
         }
 
         private async void OnSignInButtonClicked(object sender, EventArgs e)
@@ -23,7 +19,8 @@ namespace GoalsApp.Views
             string username = UsernameEntry.Text;
             string password = PasswordEntry.Text;
 
-            await viewModel.LoginAttempt(username, password);
+            Validation.IsVisible = await viewModel.LoginAttempt(username, password);
+            
         }
 
         private async void OnForgotPasswordLabelTapped(object sender, EventArgs e)
