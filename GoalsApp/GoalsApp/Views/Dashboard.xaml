@@ -18,13 +18,17 @@
 
 
             <!--Desired outcome of button navigation for user is to be as simple as possible without any tabs(unnecessary)-->
+            <!--Directs you to Tasks-->
+            <Button x:Name="ToTasksButton" Margin="0,15" BackgroundColor="{StaticResource Secondary}"
+                    Text="Tasks" TextColor="{StaticResource Primary}" Clicked="ToTasksButton_Clicked"/>
+
             <!--Directs you to list of Goals-->
             <Button x:Name="ToGoalsButton" Margin="0,15" BackgroundColor="{StaticResource Secondary}"
                     Text="Goals" TextColor="{StaticResource Primary}" Clicked="ToGoalsButton_Clicked" />
 
-            <!--Directs you to Tasks-->
-            <Button x:Name="ToTasksButton" Margin="0,15" BackgroundColor="{StaticResource Secondary}"
-                    Text="Tasks" TextColor="{StaticResource Primary}" Clicked="ToTasksButton_Clicked"/>
+            <!--Directs you to Reminders-->
+            <Button x:Name="ToRemindersButton" Margin="0,15" BackgroundColor="{StaticResource Secondary}"
+                    Text="Remidners" TextColor="{StaticResource Primary}" Clicked="ToRemindersButton_Clicked"/>
 
             <!--Directs you to Calendar-->
             <Button x:Name="ToCalendarButton" Margin="0,15" BackgroundColor="{StaticResource Secondary}"

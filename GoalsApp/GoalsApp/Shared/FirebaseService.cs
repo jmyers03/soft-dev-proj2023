@@ -71,6 +71,93 @@ namespace GoalsApp.Shared
             return user?.Key;
         }
 
+        //GET TASKS BY ID
+        public async Task<ObservableCollection<MyTask>> GetTasksByUserIdWithKey()
+        {
+            var tasks = await _client
+            .Child("Tasks")
+            .OnceAsync<MyTask>();
+
+            return new ObservableCollection<MyTask>(tasks.Select(t =>
+            {
+                var task = t.Object;
+                task.Key = t.Key;
+                return task;
+            }).Where(t => t.UserKey == firebaseServiceUserKey));
+        }
+
+        //ADD TASK TO THE TABLE
+        public async Task AddTask(MyTask task)
+        {
+            var tasks = await _client
+                .Child("Tasks")
+                .PostAsync(task);
+        }
+
+        //GET REMINDERS BY ID
+        public async Task<ObservableCollection<Reminder>> GetReminderByUserIdWithKey()
+        {
+            var reminders = await _client
+                .Child("Reminders")
+                .OnceAsync<Reminder>();
+
+            return new ObservableCollection<Reminder>(reminders.Select(t =>
+            {
+                var reminder = t.Object;
+                reminder.Key = t.Key;
+                return reminder;
+            }).Where(t => t.UserKey == firebaseServiceUserKey));
+        }
+
+        //ADD REMINDERS TO THE TABLE
+        public async Task AddReminders(Reminder reminder)
+        {
+            var reminders = await _client
+                .Child("Reminders")
+                .PostAsync(reminder);
+        }
+
+        //GET GOALS BY ID
+        public async Task<ObservableCollection<Goal>> GetGoalsByUserIdWithKey()
+        {
+            var goals = await _client
+                .Child("Goals")
+                .OnceAsync<Goal>();
+
+            return new ObservableCollection<Goal>(goals.Select(t =>
+            {
+                var goal = t.Object;
+                goal.Key = t.Key;
+                return goal;
+            }).Where(t => t.UserKey == firebaseServiceUserKey));
+        }
+
+        //ADD GOAL TO THE TABLE
+        public async Task AddGoal(Goal goal)
+        {
+            var goals = await _client
+                .Child("Goals")
+                .PostAsync(goal);
+        }
+
+        //ADD USER TO THE TABLE
+        public async Task AddUser(User user)
+        {
+            var users = await _client
+                .Child("Users")
+                .PostAsync(user);
+        }
+
+        //SEE IF USERNAME IS UNQUIE 
+        public async Task<bool> IsUsernameUnique(string username)
+        {
+            var users = await _client
+                .Child("Users")
+                .OnceAsync<User>();
+
+            return !users.Any(user => user.Object.Username == username);
+        }
+
         public string firebaseServiceUserKey;
 
     }

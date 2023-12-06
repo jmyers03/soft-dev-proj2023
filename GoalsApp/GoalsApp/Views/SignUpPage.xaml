@@ -6,19 +6,58 @@
              Title="Registration Page"
              Shell.FlyoutBehavior="Disabled">
 
-    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="20">
-        <Label Text="Registration" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" Margin="0,0,0,20"/>
+    <FlexLayout HorizontalOptions="FillAndExpand" Direction="Column" Margin="20">
 
-        <Entry Placeholder="First Name" Margin="0,0,0,10"/>
+        <StackLayout>
+            <Image Source="dreamcatcher.png" HeightRequest="50" HorizontalOptions="StartAndExpand"/>
 
-        <Entry Placeholder="Last Name" Margin="0,0,0,10"/>
 
-        <Entry Placeholder="Email" Margin="0,0,0,10"/>
+            <!--Username and password stack-->
+            <Label x:Name="UsernameLabel" Margin="5,0,0,10" TextColor="Black"
+                    FontSize="16" Text="Set Account Username"/>
 
-        <Entry Placeholder="Password" Margin="0,0,0,10" IsPassword="True"/>
+            <Entry x:Name="UsernameEntry" BackgroundColor="White" Placeholder="Enter username"
+                    TextColor="Black" Margin="5,0,0,10" PlaceholderColor="Gray"/>
 
-        <Button Text="Sign Up" HorizontalOptions="FillAndExpand" Margin="0,10,0,0"/>
+            <Label x:Name="PasswordLabel" Margin="5,0,0,10" TextColor="Black"
+                    FontSize="16" Text="Set Account Password"/>
 
-        <Button Text="Cancel" HorizontalOptions="FillAndExpand"/>
-    </StackLayout>
+
+            <Entry x:Name="PasswordEntry" BackgroundColor="White" Placeholder="Enter password"
+                    TextColor="Black" Margin="5,0,0,10" PlaceholderColor="Gray" 
+                    IsPassword="True"/>
+
+            <Label x:Name="Validation" Text="Username Taken!" TextColor="Black" IsVisible="False"/>
+
+            <Button Margin="0,15"
+                Text="Register" TextColor="White" Clicked="OnRegisterButtonClicked"/>
+
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,4,0,0"/>
+
+            <!--Sign In Button-->
+            <Button Margin="0,15"
+                Text="Back To Sign In" TextColor="White" Clicked="OnSignInButtonClicked"/>
+
+            <!--Bottom Ribbon stack-->
+            <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                <Label x:Name="ForgotPasswordLabel" TextDecorations="Underline" TextColor="Black"
+                    FontSize="16" Text="Forgot Password?" VerticalOptions="EndAndExpand" 
+                    HorizontalOptions="StartAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnForgotPasswordLabelTapped"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label x:Name="ContinueWithoutAccountLabel" TextColor="Black"
+                        FontSize="16" Text="Continue without account?" TextDecorations="Underline" VerticalOptions="EndAndExpand" 
+                        HorizontalOptions="EndAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnContinueWithoutAccountLabelTapped"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </StackLayout>
+        </StackLayout>
+
+    </FlexLayout>
 </ContentPage>

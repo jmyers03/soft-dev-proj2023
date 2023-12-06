@@ -17,6 +17,11 @@ public partial class Dashboard : ContentPage
         Shell.Current.GoToAsync(nameof(TaskPage));
     }
 
+    private void ToRemindersButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(ReminderPage));
+    }
+
     private void ToCalendarButton_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(CalendarPage));
