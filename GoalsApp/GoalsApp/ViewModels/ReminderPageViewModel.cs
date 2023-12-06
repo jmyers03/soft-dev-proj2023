@@ -1,7 +1,8 @@
 using System;
 using System.Collections.ObjectModel;
 using GoalsApp.Models;
-using Plugin.LocalNotification;
+//*******UNCOMMENT THIS******////
+//using Plugin.LocalNotification;
 using Firebase.Database;
 using Firebase.Database.Query;
 
