@@ -7,7 +7,7 @@
              Title="UIExperiments">
 
     <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="Start" AlignItems="Start">
-        <Editor Text="{Binding Title}" Placeholder="Task Title:" VerticalOptions="Center" FontSize="20" FontFamily="MontserratBold" />
+        <!--<Editor Text="{Binding Title}" Placeholder="Task Title:" VerticalOptions="Center" FontSize="20" FontFamily="MontserratBold" />-->
     </FlexLayout>
 
 

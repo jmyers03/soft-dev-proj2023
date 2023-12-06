@@ -18,14 +18,14 @@
 
 
 
-            <Entry BackgroundColor="White" Placeholder="Enter username/email"
+            <Entry x:Name="UsernameEntry" BackgroundColor="White" Placeholder="Enter username/email"
         TextColor="Black" Margin="5,0,0,10" PlaceholderColor="Gray"/>
 
             <Label x:Name="PasswordLabel" Margin="5,0,0,10" TextColor="Black"
         FontSize="16" Text="Password"/>
 
 
-            <Entry BackgroundColor="White" Placeholder="Enter password"
+            <Entry x:Name="PasswordEntry" BackgroundColor="White" Placeholder="Enter password"
         TextColor="Black" Margin="5,0,0,10" PlaceholderColor="Gray" 
         IsPassword="True"/>
 
