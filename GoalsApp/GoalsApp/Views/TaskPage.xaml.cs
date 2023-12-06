@@ -12,6 +12,27 @@ public partial class TaskPage : ContentPage
 	public TaskPage()
 	{
 		InitializeComponent();
+
+        //Method defined right below 
+        InitializeViewModel();
+    }
+
+    private async void InitializeViewModel()
+    {
+        //sets the current Tasks list equal to the list 
+        await viewModel.GetUserTasks();
+        BindingContext = viewModel;
+    }
+
+    // May need to viewModel so the View does not know about the Model (follows MVVM)
+    // - will move them and will have to push and pull data to the database in the methods 
+    private void AddDefaultTask(object sender, EventArgs e)
+    {
+        if (sender is Button button)
+        {
+            // Access the BindingContext directly, assuming it is a MyTask
+            viewModel.AddDefaultTask(button.BindingContext as MyTask);
+        }
     }
 
     private void CurrentCheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
@@ -54,12 +75,16 @@ public partial class TaskPage : ContentPage
         var parent = (StackLayout)picker.Parent;
         var task = (MyTask)parent.BindingContext;
 
-        task.GoalId = selectedGoal.Key;
+        task.GoalKey = selectedGoal.Key;
 
     }
 
-    private void Button_Clicked(object sender, EventArgs e)
+    private async void SaveButton_Clicked(object sender, EventArgs e)
     {
+        var button = (Button)sender;
+        var task = (MyTask)button.BindingContext;
 
+        // Call the SaveTask method from the view model
+        await viewModel.SaveTask(task);
     }
 }

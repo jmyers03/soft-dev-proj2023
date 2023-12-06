@@ -43,6 +43,7 @@
                                                 </FlexLayout>
                                             </ctk:Expander.Header>
                                             <StackLayout Padding="0,10,0,10">
+                                                <Entry x:Name="TaskTitleEntry" Text="{Binding Title}" VerticalOptions="Center" FontSize="20" FontFamily="MontserratBold"/>
                                                 <Entry Placeholder="Task Description:" FontFamily="Montserrat" VerticalOptions="Fill" Text="{Binding Description}" HeightRequest="70"/>
                                                 <Label Text="Completion Date and Time:" FontFamily="Montserrat" Padding="0,20,0,0"/>
                                                 <HorizontalStackLayout Padding="0,0,0,20">
@@ -53,7 +54,11 @@
                                                     <Picker Title="Select a Goal:" FontFamily="Montserrat" ItemsSource="{Binding BindingContext.currentGoals, 
                                                             Source={x:Reference TheTaskPage}}" VerticalOptions="Center"
                                                             ItemDisplayBinding="{Binding Title}" SelectedIndexChanged="GoalPicker_SelectedIndexChanged"/>
-                                                    <Button Text="Save" Margin="0,10,0,0" Padding="10" Clicked="Button_Clicked"/>
+                                                    <Button Text="Save" Margin="0,10,0,0" Padding="10" Clicked="SaveButton_Clicked">
+                                                        <Button.CommandParameter>
+                                                            <Binding />
+                                                        </Button.CommandParameter>
+                                                    </Button>
                                                 </StackLayout>
                                             </StackLayout>
                                         </ctk:Expander>

@@ -1,12 +1,18 @@
 using System;
 using System.Collections.ObjectModel;
 using GoalsApp.Models;
+//*******UNCOMMENT THIS******////
 //using Plugin.LocalNotification;
+using Firebase.Database;
+using Firebase.Database.Query;
 
 namespace GoalsApp.ViewModels
 {
     public class RemindersPageViewModel
     {
+        private readonly FirebaseClient _firebase;
+
+
         // ObservableCollections use the CollectionChanged event to notify the UI when the collection
         // is refreshed, or items are added or removed
 
@@ -18,27 +24,21 @@ namespace GoalsApp.ViewModels
         // RemindersViewModel constructor
         public RemindersPageViewModel()
         {
+            _firebase = new FirebaseClient("https://goalsapp-9c3f5-default-rtdb.firebaseio.com/");
+
             // Insert test data for upcoming reminders
-            UpcomingReminders = new ObservableCollection<Reminder>
-            {
-                new Reminder { Key = "1", Title = "Upcoming Reminder 1", DateTime = DateTime.Now.AddHours(1) },
-                new Reminder { Key = "2", Title = "Upcoming Reminder 2", DateTime = DateTime.Now.AddHours(2) },
-                // Add more test data as needed
-            };
+            UpcomingReminders = new ObservableCollection<Reminder> { };
 
             // Insert test data for completed reminders
-            CompletedReminders = new ObservableCollection<Reminder>
-            {
-                new Reminder { Key = "3", Title = "Completed Reminder 1", DateTime = DateTime.Now.AddHours(-1), Completed = true },
-                new Reminder { Key = "4", Title = "Completed Reminder 2", DateTime = DateTime.Now.AddHours(-2), Completed = true },
-                // Add more test data as needed
-            };
+            CompletedReminders = new ObservableCollection<Reminder> { };
 
-            currentTasks = new ObservableCollection<MyTask>
-            {
-                new MyTask { Key = "5", Title = "This task has a description (Id=2)", Description = "Test Description"},
-                new MyTask { Key = "6", Title = "This task has a description (Id=2)", Description = "Test Description"},
-            };
+            currentTasks = new ObservableCollection<MyTask> { };
+        }
+
+        public async Task InitializeRemindersAsync()
+        {
+            var upcomingReminders = await _firebase.Child("Reminders").OnceAsync<Reminder>();
+            UpcomingReminders = new ObservableCollection<Reminder>(upcomingReminders.Select(x => x.Object));
         }
 
         public void MarkAsCompleted(Reminder reminder)
@@ -60,19 +60,46 @@ namespace GoalsApp.ViewModels
             UpcomingReminders.Remove(reminder);
             CompletedReminders.Remove(reminder);
         }
-
-        public string GenerateUniqueId()
+        public async Task GetUserTasks()
         {
-            return Guid.NewGuid().ToString();
+            var firebaseClient = new FirebaseClient("https://goalsapp-9c3f5-default-rtdb.firebaseio.com/");
+
+            //add only tasks with the userid 
+            var allTasks = await firebaseClient
+                .Child("Tasks")
+                .OnceAsync<MyTask>();
+
+            currentTasks.Clear();
+
+            //get whether the task is completed or not
+            foreach (var task in allTasks.Select(t => t.Object))
+            {
+                currentTasks.Add(task);
+            }
         }
 
-        public void AddReminder(Reminder reminder)
+        public async Task GetUserReminders()
         {
-            if (reminder.DateTime.HasValue && reminder.DateTime > DateTime.Now)
+            //add only tasks with the userid 
+            var allReminders = await _firebase
+                .Child("Reminders")
+                .OnceAsync<Reminder>();
+
+            UpcomingReminders.Clear();
+
+            //get whether the task is completed or not
+            foreach (var reminders in allReminders.Select(t => t.Object))
             {
-                // Add the reminder to the upcoming list and schedule notification
-                UpcomingReminders.Add(reminder);
+                UpcomingReminders.Add(reminders);
             }
+        }
+
+        public async Task AddReminder(Reminder reminder)
+        {
+            // Add the reminder to Firebase
+            await _firebase.Child("Reminders").PostAsync(reminder);
+
+            UpcomingReminders.Add(reminder);
         }
     }
 }

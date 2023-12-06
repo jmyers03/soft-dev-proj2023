@@ -6,45 +6,46 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="GoalsApp.Views.ReminderPage">
+    
+    <ScrollView Margin="5">
+        <StackLayout>
+            <!-- Display Upcoming Reminders -->
+            <Label Text="Upcoming Reminders" FontSize="Large" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" />
+            <!-- Add Reminder Button -->
+            <Button Text="Add Reminder" Clicked="AddReminder_Clicked" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" />
+            <!-- User Input Fields for Reminder -->
+            <Entry Placeholder="Title" x:Name="TitleEntry" />
+            <Entry Placeholder="Description" x:Name="DescriptionEntry" />
+            <DatePicker x:Name="DatePicker" />
+            <TimePicker x:Name="TimePicker" />
+            <Picker x:Name="pickerTask" Title="Select a Task:" FontFamily="Montserrat" ItemsSource="{Binding currentTasks}" VerticalOptions="Center" ItemDisplayBinding="{Binding Title}"/>
+            <CollectionView ItemsSource="{Binding UpcomingReminders}" SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Title}" />
+                            <Label Text="{Binding DateTime}" />
+                            <Button Text="Mark as Completed" Clicked="MarkAsCompleted_Clicked" />
+                            <Button Text="Delete Reminder" Clicked="DeleteReminder_Clicked" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-    <StackLayout>
-        <!-- Display Upcoming Reminders -->
-        <Label Text="Upcoming Reminders" FontSize="Large" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" />
-        <!-- Add Reminder Button -->
-        <Button Text="Add Reminder" Clicked="AddReminder_Clicked" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" />
-        <!-- User Input Fields for Reminder -->
-        <Entry Placeholder="Title" x:Name="TitleEntry" />
-        <Entry Placeholder="Description" x:Name="DescriptionEntry" />
-        <DatePicker x:Name="DatePicker" />
-        <TimePicker x:Name="TimePicker" />
-        <Picker x:Name="pickerTask" Title="Select a Task:" FontFamily="Montserrat" ItemsSource="{Binding currentTasks}" VerticalOptions="Center" ItemDisplayBinding="{Binding Title}" 
-        SelectedIndexChanged="TaskPicker_SelectedIndexChanged"/>
-        <CollectionView ItemsSource="{Binding UpcomingReminders}" SelectionMode="Single">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Padding="10">
-                        <Label Text="{Binding Title}" />
-                        <Label Text="{Binding DateTime}" />
-                        <Button Text="Mark as Completed" Clicked="MarkAsCompleted_Clicked" />
-                        <Button Text="Delete Reminder" Clicked="DeleteReminder_Clicked" />
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-
-        <!-- Display Completed Reminders -->
-        <Label Text="Completed Reminders" FontSize="Large" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" />
-        <CollectionView ItemsSource="{Binding CompletedReminders}" SelectionMode="Single">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Padding="10">
-                        <Label Text="{Binding Title}" />
-                        <Label Text="{Binding DateTime}" />
-                        <Button Text="Mark as Upcoming" Clicked="MarkAsUpcoming_Clicked" />
-                        <Button Text="Delete Reminder" Clicked="DeleteReminder_Clicked" />
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </StackLayout>
+            <!-- Display Completed Reminders -->
+            <Label Text="Completed Reminders" FontSize="Large" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" />
+            <CollectionView ItemsSource="{Binding CompletedReminders}" SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Title}" />
+                            <Label Text="{Binding DateTime}" />
+                            <Button Text="Mark as Upcoming" Clicked="MarkAsUpcoming_Clicked" />
+                            <Button Text="Delete Reminder" Clicked="DeleteReminder_Clicked" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

@@ -63,7 +63,6 @@
 	  </Compile>
 	  <PackageReference Include="CommunityToolkit.Maui" Version="6.1.0" />
 	  <PackageReference Include="FirebaseDatabase.net" Version="4.2.0" />
-	  <PackageReference Include="Plugin.LocalNotification" Version="10.1.8" />
 	  <PackageReference Include="Plugin.Maui.Calendar" Version="1.0.3" />
 	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 	</ItemGroup>

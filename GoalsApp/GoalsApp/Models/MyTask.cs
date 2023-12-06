@@ -13,7 +13,7 @@ namespace GoalsApp.Models
         public string Title { get; set; }
         public string Description { get; set; }
         // Gets the current date and sets it to the current date if there is not one
-        public DateTime CompletionDateTime { get; set; } = DateTime.Now.AddHours(1);
+        public DateTime CompletionDateTime { get; set; } 
         public string GoalKey { get; set; }
         //how long it will take to complete the task 
         public bool Completed { get; set; } = false;
