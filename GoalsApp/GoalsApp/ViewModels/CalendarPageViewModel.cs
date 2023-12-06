@@ -1,48 +1,80 @@
-﻿using Plugin.Maui.Calendar.Models;
+﻿using Firebase.Database;
+using GoalsApp.Models;
+using Plugin.Maui.Calendar.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GoalsApp.Shared;
+
 
 namespace GoalsApp.ViewModels
 {
     public class CalendarPageViewModel
     {
         public EventCollection Events { get; set; }
+        private FirebaseService firebaseService;
+        
 
         public CalendarPageViewModel()
         {
-            Events = new EventCollection
-            {
-                [DateTime.Now] = new List<EventModel>
-        {
-            new EventModel { Name = "Cool event1", Description = "This is Cool event1's description!" },
-            new EventModel { Name = "Cool event2", Description = "This is Cool event2's description!" }
-        },
-                // 5 days from today
-                [DateTime.Now.AddDays(5)] = new List<EventModel>
-        {
-            new EventModel { Name = "Cool event3", Description = "This is Cool event3's description!" },
-            new EventModel { Name = "Cool event4", Description = "This is Cool event4's description!" }
-        },
-                // 3 days ago
-                [DateTime.Now.AddDays(-3)] = new List<EventModel>
-        {
-            new EventModel { Name = "Cool event5", Description = "This is Cool event5's description!" }
-        },
-                // custom date
-                [new DateTime(2020, 3, 16)] = new List<EventModel>
-        {
-            new EventModel { Name = "Cool event6", Description = "This is Cool event6's description!" }
-        }
-            };
+            firebaseService = new FirebaseService("https://goalsapp-9c3f5-default-rtdb.firebaseio.com/");
+            Events = new EventCollection();
 
+            LoadTasksAndGoals();
+
+            MessagingCenter.Subscribe<TaskPageViewModel>(this, "TaskAdded", (sender) =>
+            {
+                LoadTasksAndGoals();
+            });
         }
+
+        private async void LoadTasksAndGoals()
+        {
+            var tasks = await firebaseService.GetTasksByUserId();
+            var goals = await firebaseService.GetGoalsByUserId();
+
+            MapTasksToEvents(tasks);
+            MapGoalsToEvents(goals);
+        }
+
+        private void MapTasksToEvents(IEnumerable<MyTask> tasks)
+        {
+            foreach (var task in tasks)
+            {
+                var eventDate = task.CompletionDateTime;
+                if (!Events.ContainsKey(eventDate))
+                {
+                    Events[eventDate] = new List<EventModel>();
+                }
+
+                var eventList = Events[eventDate] as List<EventModel>;
+                eventList?.Add(new EventModel { Title = task.Title, Description = task.Description, CompletionDateTime = task.CompletionDateTime });
+            }
+        }
+
+        private void MapGoalsToEvents(IEnumerable<MyTask> goals)
+        {
+            foreach (var goal in goals)
+            {
+                var eventDate = goal.CompletionDateTime;
+                if (!Events.ContainsKey(eventDate))
+                {
+                    Events[eventDate] = new List<EventModel>();
+                }
+
+                var eventList = Events[eventDate] as List<EventModel>;
+                eventList?.Add(new EventModel { Title = goal.Title, Description = goal.Description , CompletionDateTime = goal.CompletionDateTime});
+            }
+        }
+
         internal class EventModel
         {
-            public string Name { get; set; }
+            public string Title { get; set; }
             public string Description { get; set; }
+            public DateTime? CompletionDateTime { get; set; }
+
         }
     }
 }

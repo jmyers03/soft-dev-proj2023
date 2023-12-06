@@ -6,8 +6,16 @@
              Title="Calendar">
     <StackLayout>
 
-        <cal:Calendar EventsScrollViewVisible="True" SelectedDateColor="Blue">
-
+        <cal:Calendar Events="{Binding Events}" EventsScrollViewVisible="True" SelectedDateColor="Blue">
+            <cal:Calendar.EventTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout>
+                        <Label Text="{Binding Title}" FontSize="25" FontAttributes="Bold"/>
+                        <Label Text="{Binding Description}"/>
+                        <Label Text="{Binding CompletionDateTime}" FontSize="10" FontAttributes="Italic"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </cal:Calendar.EventTemplate>
         </cal:Calendar>
         
     </StackLayout>

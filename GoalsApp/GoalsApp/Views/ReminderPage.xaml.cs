@@ -60,6 +60,7 @@ public partial class ReminderPage : ContentPage
 
         await LocalNotificationCenter.Current.Show(request);
 
+
         // Clear the text in the Entry fields
         TitleEntry.Text = "";
         DescriptionEntry.Text = "";

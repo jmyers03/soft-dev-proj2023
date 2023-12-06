@@ -4,15 +4,18 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Firebase.Database;
 using Firebase.Database.Query;
 using GoalsApp.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using GoalsApp.Shared;
+using GoalsApp.Views;
 
 namespace GoalsApp.ViewModels
 {
     public class TaskPageViewModel 
     {
+        private FirebaseService _firebaseSerivce;
         //OberservableCollections use the CollectionChanged event to notiify the UI when the collection
         //is refreshed, or items are added or removed 
         //creates completed and current tasks (pull in entries for each list from the database by using the Completed property)
@@ -25,18 +28,18 @@ namespace GoalsApp.ViewModels
         {
             DateTime TodayDate = DateTime.Now;
 
+            _firebaseSerivce = new FirebaseService("https://goalsapp-9c3f5-default-rtdb.firebaseio.com/");
 
             // Current tasks starts as empty and GetTasks is called in code behind 
             currentTasks = new ObservableCollection<MyTask> { };
+
             //Insert completed task test data here  - will come from database based on userId
             completedTasks = new ObservableCollection<MyTask> { };
             
 
             //Insert current Goal test data here - will come from database based on userId
-            currentGoals = new ObservableCollection<Goal>
-            {
-                
-            };
+            currentGoals = new ObservableCollection<Goal> { };
+
         }
         public void MoveToCompleted(MyTask task)
         {
@@ -73,30 +76,40 @@ namespace GoalsApp.ViewModels
             }
         }
 
-        public async Task AddTask()
+        public void AddDefaultTask(MyTask task)
         {
-            var firebaseClient = new FirebaseClient("https://goalsapp-9c3f5-default-rtdb.firebaseio.com/");
+
             //define default task
-            var defaultTask = new MyTask { Title = "Default Task", Description = "Default Description" };
+            task = new MyTask { Title = "Default Task", Description = "Default Description" };
+
+            // Add the default task to the currentTasks collection
+            currentTasks.Insert(0, task);
+
+        }
+
+        public async Task SaveTask(MyTask task)
+        {
+            
+            var firebaseClient = new FirebaseClient("https://goalsapp-9c3f5-default-rtdb.firebaseio.com/");
+
+            currentTasks.Clear();
 
             //add the default task
             var tasks = await firebaseClient
                 .Child("Tasks")
-                .PostAsync(defaultTask);
+                .PostAsync(task);
 
             //get all the tasks
             var allTasks = await firebaseClient
                 .Child("Tasks")
                 .OnceAsync<MyTask>();
-            
-            //clear current tasks 
-            currentTasks.Clear();
 
-            //set current tasks to all of the tasks in the database
-            foreach (var task in allTasks.Select(t => t.Object))
+            foreach (var addtask in allTasks.Select(t => t.Object))
             {
-                currentTasks.Add(task);
+                currentTasks.Add(addtask);
             }
+            
+            MessagingCenter.Send(this, "TaskAdded");
         }
     }
 }
